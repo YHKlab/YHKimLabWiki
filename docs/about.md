@@ -4,7 +4,7 @@
 
 Name : Yong-Hoon Kim
 
-![Screenshot](/img/about-01.png)
+![Screenshot](../img/about-01.png)
 
 Education:
 
