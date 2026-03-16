@@ -14,7 +14,11 @@
 이번 장에서는 원자에 대해 밀도범함수론(density functional theory, DFT) 기반의 전(全)전자(all-electron) 계산을 수행하고, 얻어진 결과를 이용하여 전자 배치 변화에 따른 에너지 차이를 비교한다.
 이를 통해 이온화 효과, Hund’s rule, spin polarization이 실제 계산에서 어떻게 나타나는지를 확인한다. 
  
-[Tutorial](img/build/Tutorial.tar.gz){ .md-button }  
+[Tutorial](img/build/Tutorial.tar.gz){ .md-button }
+
+```bash
+$tar -zxvf Tutorial.tar.gz
+```
 
 우선, `ATOM`이 설치된 위치에서 `/Tutorial/1.atom`에 위치한 다음 파일을 살펴보자:
 ```bash
