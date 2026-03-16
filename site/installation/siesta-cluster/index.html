@@ -3009,13 +3009,13 @@ LDFLAGS += -L$(MPIROOT)/lib
 </code></pre></div>
 <p>이제 터미널에서 <code>siesta</code> 명령어를 쳐보자. 결과가 아래 사진과 같이 나온다면 SIESTA를 성공적으로 빌드한 것이다.
 <br> 설치 환경에 따라 <code>siesta-v(version)</code>의 형식이 될 수 있다.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/siesta-cluster-01.png" data-desc-position="bottom"><img alt="build2.png" src="../img/siesta-cluster-01.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../installation/img/siesta-cluster-01.png" data-desc-position="bottom"><img alt="build2.png" src="../../installation/img/siesta-cluster-01.png"></a></p>
 <h2 id="2">2. 유틸리티 빌드하기</h2>
 <p>SIESTA 계산을 분석하기 위해서는 많은 유틸리티 코드가 필요하다. 유틸리티 코드은 <code>/Util</code> 디렉토리에 있고, 그 안에 있는 build_all.sh 스크립트를 실행시키면 모든 유틸리티 코드들이 컴파일된다.</p>
 <div class="highlight"><pre><span></span><code>./build_all.sh
 </code></pre></div>
 <p>빌드가 완료되면 다음과 같이 빌드가 안된 폴더들이 나온다.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/siesta-cluster-02.png" data-desc-position="bottom"><img alt="build4.png" src="../img/siesta-cluster-02.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../installation/img/siesta-cluster-02.png" data-desc-position="bottom"><img alt="build4.png" src="../../installation/img/siesta-cluster-02.png"></a></p>
 <p>이에 대해서는 개별적으로 디텍토리에 접근하여 컴파일을 다시 시도하기를 바란다.</p>
 <h2 id="3">3. 라이브러리 추가</h2>
 <p>지금까지는 기본적인 SIESTA 프로그램에 대한 설치에 대해서 다루었다. 그러나 보다 빠른 SIESTA 계산을 위해서는 다음과 같은 라이브러리를 SIESTA 컴파일 시에 추가하기를 권장한다.</p>
@@ -3105,7 +3105,7 @@ FPPFLAGS += -DCDF -DNCDF -DNCDF_4
 </code></pre></div></li>
 </ul>
 <p>위 명령어를 실행시키면 터미널에서 계산이 진행되며, 다음 그림과 같이 scf loop가 돌면서 제 1원리 계산이 수행되는 모습을 볼 수 있다.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/siesta-cluster-03.png" data-desc-position="bottom"><img alt="build3.png" src="../img/siesta-cluster-03.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../installation/img/siesta-cluster-03.png" data-desc-position="bottom"><img alt="build3.png" src="../../installation/img/siesta-cluster-03.png"></a></p>
 
 
 

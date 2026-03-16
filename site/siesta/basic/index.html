@@ -2909,7 +2909,7 @@
 <h2 id="1-siesta">1. SIESTA 기초</h2>
 <h3 id="kohn-sham-equation">Kohn-Sham equation</h3>
 <p><code>SIESTA</code>에서는 <code>Kohn-Sham equation</code>을 푸는 시뮬레이션을 진행한다. <code>Kohn-sham equation</code>은 아래와 같다.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/basic-01.jpg" data-desc-position="bottom"><img alt="03_001" height:400px_="height:400px;" margin-left:auto_="margin-left:auto;" margin-right:auto_="margin-right:auto;”" src="../img/basic-01.jpg" style="“display:block;"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../siesta/img/basic-01.jpg" data-desc-position="bottom"><img alt="03_001" height:400px_="height:400px;" margin-left:auto_="margin-left:auto;" margin-right:auto_="margin-right:auto;”" src="../../siesta/img/basic-01.jpg" style="“display:block;"></a></p>
 <p>이 방정식에 대해 이해하기 위해서는 우선 <strong><code>Schrodinger equation</code></strong>에 대해 이해해야 한다. <strong><code>Schrodinger equation</code></strong>은 전자의 물리적 특성을 기술하는 방정식이다. 이 방정식의 eigenfunction인 wavefunction <span class="arithmatex">\(\Psi\)</span>은 그 자체로는 물리적 의미를 해석하기 어렵고, 제곱인 <span class="arithmatex">\(|\Psi|^2\)</span>가 전자가 위치에 대한 확률밀도함수라는 의미를 지닌다. eigenvalue인 <span class="arithmatex">\(\varepsilon\)</span>은 해당 wavefunction (=state)의 에너지를 의미한다. </p>
 <p>단일 전자 시스템 (e.g. 수소 원자)의 경우 analytic soltion이 존재하지만 상호작용하는 다전자 시스템 (e.g. Si bulk)의 경우 해석적으로 풀기 힘들다. 따라서 Khon-Sham 방정식에서는 이를 상호작용하지 않는 단일 전자에 대한 방정식을 여러 번 풀어, 최종적으로 가장 안정한 상태의 electron density <span class="arithmatex">\(\rho(r)\)</span>와 total energy <span class="arithmatex">\(E_{tot}\)</span>을 찾는 문제로 대체한다. </p>
 <p>ref - <a href="https://www.sciencedirect.com/topics/engineering/hohenberg-kohn-theorem">Hohenberg-Kohn theorem</a></p>
@@ -2925,11 +2925,11 @@
 <h3 id="pseudo-potential">Pseudo-potential</h3>
 <p>SIESTA 계산에서 도입하게 되는 근사로 <strong><code>Pseudopotential</code></strong>이 있다. Pseudopotential  은 계산의 편의를 위해 원자의 핵심부 전자(core electron)들을 하나의 포텐셜로 치환하는 것을 의미한다. 원자-원자 간의 상호작용은 주로 최외각전자들만이 관여하게 되고, 그 내부의 core electron들은 반응에 참여하지 않는다. 그러나 좁은 공간에 밀집되어, wavefunction이 상당히 높은 주파수 성분을 갖게 되고, 이는 주파수 공간에서 Fourier transform 계산의 bottleneck이 된다. 따라서 이러한 core electron에 의한 영향을 부드러운 가상의 potential로 치환하여 계산하는 것이 Pseudopotential이다.  원자핵-원자핵 상호작용과 원자핵-전자 상호작용을 기술한다.</p>
 <p>아래 그림과 같이 pseudopotential은 원자와의 일정 거리(rc) 이상에서 실제 전자의 파동함수와 같도록 만들어 준다.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/basic-02.jpg" data-desc-position="bottom"><img alt="03_002" height:300px_="height:300px;" margin-left:auto_="margin-left:auto;" margin-right:auto_="margin-right:auto;”" src="../img/basic-02.jpg" style="“display:block;"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../siesta/img/basic-02.jpg" data-desc-position="bottom"><img alt="03_002" height:300px_="height:300px;" margin-left:auto_="margin-left:auto;" margin-right:auto_="margin-right:auto;”" src="../../siesta/img/basic-02.jpg" style="“display:block;"></a></p>
 <p>예외적인 경우로 core로 분류되었음에도 실제 반응에 참여하는 orbital이 존재할 수 있다. 대표적으로 3d 오비탈을 갖는 물질이 있으며, 이러한 경우 correction이 필요하다.</p>
 <h3 id="self-consistent-field-method">Self-consistent Field method</h3>
 <p>DFT 계산에서 사용되는 알고리즘은 <code>SCF(self-consistent-field)</code> 계산이다. 그림과 같은 <strong>SCF loop의 iteration method</strong>을 통해 변분법에 따른 <em>안정된 에너지를 가지는 역학적에너지와 포텐셜 에너지의 합</em>을 뜻하는 연산자 <code>Hamiltonian</code>을 구할 수 있다. 이를 통해 <em>band structure, DOS(Density Of States), PDOS(Projected Density Of States)</em> 등 다양한 물질특성을 분석할 수 있다.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/basic-03.jpg" data-desc-position="bottom"><img alt="03_003" height:500px_="height:500px;" margin-left:auto_="margin-left:auto;" margin-right:auto_="margin-right:auto;”" src="../img/basic-03.jpg" style="“display:block;"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../siesta/img/basic-03.jpg" data-desc-position="bottom"><img alt="03_003" height:500px_="height:500px;" margin-left:auto_="margin-left:auto;" margin-right:auto_="margin-right:auto;”" src="../../siesta/img/basic-03.jpg" style="“display:block;"></a></p>
 <p>알고리즘에서 H(Hamiltonian)은 LCAO(linear combination of atomic orbitals)로 구성된다.</p>
 <p>전체 알고리즘은 </p>
 <ol>
@@ -2948,7 +2948,7 @@
 <li><code>.psf</code> 파일은 pseudopotential 정보를 가지고 있는 파일을 뜻한다. 프로그램이나 버전에 따라 형식이 달라질 수 있다.</li>
 </ul>
 <p><strong>Executable 파일</strong>의 경우 앞선 <code>SIESTA 설치</code> 장에서 제대로 설치된 경우 <code>siesta 폴더/Obj</code>에 위치해있다.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/basic-04.jpg" data-desc-position="bottom"><img alt="03_004" height:400px_="height:400px;" margin-left:auto_="margin-left:auto;" margin-right:auto_="margin-right:auto;”" src="../img/basic-04.jpg" style="“display:block;"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../siesta/img/basic-04.jpg" data-desc-position="bottom"><img alt="03_004" height:400px_="height:400px;" margin-left:auto_="margin-left:auto;" margin-right:auto_="margin-right:auto;”" src="../../siesta/img/basic-04.jpg" style="“display:block;"></a></p>
 <h3 id="_1">참고문헌</h3>
 <p><a href="http://www.icmab.es/siesta/">ref - SIESTA homepage</a></p>
 <p><a href="https://docs.siesta-project.org/projects/siesta/en/stable/index.html">ref - SIESTA Docs</a></p>

@@ -2948,16 +2948,16 @@
 <p>Input: <a href="https://1drv.ms/u/s!ArHICXVqPANVuyG8V_dx7W3FLClr?e=lmyFcX">Link</a></p>
 </blockquote>
 <h2 id="_1">수렴성 테스트</h2>
-<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/si-sio2-si-01.png" data-desc-position="bottom"><img src="../img/si-sio2-si-01.png" width="80%" height="80%"></a></center>
+<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../transiesta/img/si-sio2-si-01.png" data-desc-position="bottom"><img src="../../transiesta/img/si-sio2-si-01.png" width="80%" height="80%"></a></center>
 
 <p>이번 강의에서는 보다 정확하게 계산하기 위해서 필요한 사항에 대해서 논의해보기 위해 3차원의 Si-SiO<sub>2</sub>-Si 구조에 대해서 양자 수송 특성을 계산한다.</p>
 <h3 id="exercise-1-buffer-layer">Exercise 1: Buffer layer 테스트</h3>
 <p>Si-SiO<sub>2</sub>-Si junction model을 이용하여 buffer layer 테스트를 진행한다.</p>
-<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/si-sio2-si-02.png" data-desc-position="bottom"><img src="../img/si-sio2-si-02.png" width="80%" height="80%"></a></center>
+<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../transiesta/img/si-sio2-si-02.png" data-desc-position="bottom"><img src="../../transiesta/img/si-sio2-si-02.png" width="80%" height="80%"></a></center>
 
 <h4 id="step-1-electrode-calculation">Step 1: Electrode calculation</h4>
 <p>electrode의 unit cell 크기는 유지한 채로 buffer layer만을 조절하여, transmission을 확인한다. 이때, electrode의 unitcell은 principal cell이 되도록 크기를 설정하였다.</p>
-<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/si-sio2-si-03.png" data-desc-position="bottom"><img src="../img/si-sio2-si-03.png" width="30%" height="30%"></a></center>
+<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../transiesta/img/si-sio2-si-03.png" data-desc-position="bottom"><img src="../../transiesta/img/si-sio2-si-03.png" width="30%" height="30%"></a></center>
 
 <p></p><div class="highlight"><pre><span></span><code>$ vi STRUCT.fdf
 NumberOfAtoms    32           # Number of atoms
@@ -2981,7 +2981,7 @@ Left electrode와 Right electrode에 대해서 각자 DFT 계산을 진행하여
 $ cp ../2.elec_right/OUT/Right.TSHS input/.
 </code></pre></div>
 Buffer layer 개수에 따른 구조는 다음과 같다.<p></p>
-<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/si-sio2-si-04.png" data-desc-position="bottom"><img src="../img/si-sio2-si-04.png" width="80%" height="80%"></a></center>
+<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../transiesta/img/si-sio2-si-04.png" data-desc-position="bottom"><img src="../../transiesta/img/si-sio2-si-04.png" width="80%" height="80%"></a></center>
 
 <div class="highlight"><pre><span></span><code>$ vi STRUCT.fdf
 # No buffer layer                               # 3 buffer layers
@@ -3002,7 +3002,7 @@ $ qsub slm _siesta_run
 </p><div class="highlight"><pre><span></span><code>$ cp OUT/siesta.TSHS input/.
 $ qsub slm _siesta_run_tbt
 </code></pre></div><p></p>
-<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/si-sio2-si-05.png" data-desc-position="bottom"><img src="../img/si-sio2-si-05.png" width="60%" height="60%"></a></center>
+<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../transiesta/img/si-sio2-si-05.png" data-desc-position="bottom"><img src="../../transiesta/img/si-sio2-si-05.png" width="60%" height="60%"></a></center>
 
 <h3 id="exercise-2-k-point">Exercise 2: K-point 테스트</h3>
 <p>Si-SiO<sub>2</sub>-Si junction 모델은 3차원이므로 electrode 계산과 scattering 계산에서 k<sub>x</sub>, k<sub>y</sub>, k<sub>z</sub> k-points 증가시키며 transmission이 수렴되는 것을 확인한다.</p>
@@ -3059,7 +3059,7 @@ $ qsub slm _siesta_run_tbt
 </li>
 </ul>
 <p>Electrode, scatering region 계산 후 tbtrans를 통해 transmision을 비교하면 다음과 같다. </p>
-<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/si-sio2-si-06.png" data-desc-position="bottom"><img src="../img/si-sio2-si-06.png" width="60%" height="60%"></a></center>
+<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../transiesta/img/si-sio2-si-06.png" data-desc-position="bottom"><img src="../../transiesta/img/si-sio2-si-06.png" width="60%" height="60%"></a></center>
 
 <h3 id="exercise-3-basis">Exercise 3: Basis 테스트</h3>
 <p>위에서 구한 수렴된 k-points (<code>6 x 6 x 6</code>, <code>6 x 6 x 1</code>)를 이용하여 Basis size에 따라 transmission 그래프를 확인하여 적절한 basis를 찾는다. 계산시 electrode, Transiesta, TBtrans 계산 모두 동일한 basis size로 해야한다. input 폴더안의 <code>BASIS.fdf</code> 파일에서 옵션을 바꿔가며 baiss test를 진행한다.
@@ -3067,7 +3067,7 @@ $ qsub slm _siesta_run_tbt
  PAO.BasisSize    SZ          # SZP or DZ, DZP, TZP
 </code></pre></div>
 basis에 따른 transmission 그래프는 다음과 같다.  <p></p>
-<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/si-sio2-si-07.png" data-desc-position="bottom"><img src="../img/si-sio2-si-07.png" width="60%" height="60%"></a></center>
+<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../transiesta/img/si-sio2-si-07.png" data-desc-position="bottom"><img src="../../transiesta/img/si-sio2-si-07.png" width="60%" height="60%"></a></center>
 
 
 
@@ -3088,7 +3088,7 @@ basis에 따른 transmission 그래프는 다음과 같다.  <p></p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 19, 2023 20:52:44 UTC">January 19, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 16, 2026 08:41:08 UTC">March 16, 2026</span>
   </span>
 
     

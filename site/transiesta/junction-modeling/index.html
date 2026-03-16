@@ -2833,24 +2833,24 @@
 <li>Electrode principal cell</li>
 </ol>
 <h2 id="jucntion">Jucntion 모델의 특징</h2>
-<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/junction-modeling-01.png" data-desc-position="bottom"><img src="../img/junction-modeling-01.png" width="40%" height="40%"></a></center>
+<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../transiesta/img/junction-modeling-01.png" data-desc-position="bottom"><img src="../../transiesta/img/junction-modeling-01.png" width="40%" height="40%"></a></center>
 
 <p>Density function theory (DFT)과 Non-equilibrium Green's function (NEGF) 방법론을 결합한 DFT-NEGF 방법론을 통한 양자수송 특성 계산에서는 전통적인 DFT 계산과 근본적으로 모사하고자 시스템의 "경계조건"에 차이가 있다. 위 그림과 같이 전통적인 DFT 계산에서 다루는 분자/고체 시스템은 고립되거나(closed) 주기적인(periodic) 경계 조건을 가지만, DFT-NEGF이 모사하고자 하는 junction 시스템은 양단이 무한한 전극으로 이어진 <strong>열린 경계조건(open boundary condition)</strong>을 가진다. 이러한 경계조건의 차이 때문에 DFT-NEGF이 다루는 junction model은 일반적인 DFT 계산에서의 계산 모델과 구별되는 특징을 가진다.</p>
-<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/junction-modeling-02.png" data-desc-position="bottom"><img src="../img/junction-modeling-02.png" width="80%" height="80%"></a></center>
+<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../transiesta/img/junction-modeling-02.png" data-desc-position="bottom"><img src="../../transiesta/img/junction-modeling-02.png" width="80%" height="80%"></a></center>
 
 <p>Junction 모델은 일반적으로 두 전극과 채널으로 구성되어 있기 때문에 세 가지 영역으로 나눌 수 있다. <strong>Left electrode</strong>, <strong>right electrode</strong> 구역과 <strong>scattering</strong> 영역이다. <strong>Left electrode</strong>와 <strong>right electrode</strong> 영역은 각각 한쪽 방향으로 무한히 반복되는 전극을 대표하며 DFT-NEGF 계산 시에는 self-energy로 치환되는 곳이다(위 그림 참조). <strong>Scattering</strong> 구역은 junction 모델에서 채널 물질이 위치하며 주기성을 가지지 않는 곳이며 전압이 인가된 비평형 상태에서는 전압이 강하되는 위치이기도 하다.</p>
 <h2 id="scatteringelectrode">Scattering/electrode 영역의 구분</h2>
-<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/junction-modeling-03.png" data-desc-position="bottom"><img src="../img/junction-modeling-03.png" width="30%" height="30%"></a></center>
+<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../transiesta/img/junction-modeling-03.png" data-desc-position="bottom"><img src="../../transiesta/img/junction-modeling-03.png" width="30%" height="30%"></a></center>
 
 <p>위에서 기술했듯이 각 구역은 명확한 특징을 가지기 때문에 보다 정확한 DFT-NEGF 계산을 위해서는 엄밀한 <strong>scattering/electrode</strong> 영역의 구분이 매우 중요하다. 가장 근본적으로는 DFT-NEGF 방법론은 "Landauer formulation"을 통해 양자수송 특성을 기술하기 때문에 양쪽 <strong>electrode</strong> 영역 사이의 상호작용이 없게 <strong>scattering</strong> 영역을 설정해야한다.</p>
-<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/junction-modeling-04.png" data-desc-position="bottom"><img src="../img/junction-modeling-04.png" width="80%" height="80%"></a></center>
+<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../transiesta/img/junction-modeling-04.png" data-desc-position="bottom"><img src="../../transiesta/img/junction-modeling-04.png" width="80%" height="80%"></a></center>
 
 <p>영역을 구분할 때 주의할 다른 사항으로는 <strong>electrode</strong> 영역이 무한한 주기적인 조건을 가지는 전극 구조를 대표하여 self-energy로 치환된 영역임을 고려해야한다는 점이다. 위 사진과 같은 Si-SiO2-Si junction 모델에서 접합부에 위치한 Si 전극의 첫번째 줄의 경우 계면의 효과로 인해서 변형이 일어난 것을 확인할 수 있다. 이러한 접합부에서 일어나는 변형은 전극에 주기적으로 나타나는 특성이 아니기 때문에 이 영역을 <strong>electrode</strong> 영역에 포함시켜서는 안될 것이다. 이와 같이 전극 물질이지만 scattering 영역에 속하는 것을 buffer layer라고 한다.</p>
-<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/junction-modeling-05.png" data-desc-position="bottom"><img src="../img/junction-modeling-05.png" width="50%" height="50%"></a></center>
+<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../transiesta/img/junction-modeling-05.png" data-desc-position="bottom"><img src="../../transiesta/img/junction-modeling-05.png" width="50%" height="50%"></a></center>
 
 <p>마지막으로 전자구조의 특성으로도 <strong>scattering</strong>과 <strong>electrode</strong> 영역의 구분지을 수 있다. 양쪽 전극에 서로 다른 전압이 인가된 <strong>비평형 상태</strong>를 모사하는 상황에서 양쪽의 <strong>electrode</strong> 영역은 서로 다른 화학적 포텐셜(chemical potential)을 대표하기 때문에 일정한 포텐셜을 가지고 있으며 전압의 강하는 <strong>scattering</strong> 영역에서 일어난다. 이를 고려하여 전압 강하를 일으키는 screening이 항상 <strong>scattering</strong> 영역에 일어나도록 구역을 설정해야한다.</p>
 <h2 id="electrode-principal-cell">Electrode principal cell</h2>
-<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/junction-modeling-06.png" data-desc-position="bottom"><img src="../img/junction-modeling-06.png" width="80%" height="80%"></a></center>
+<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../transiesta/img/junction-modeling-06.png" data-desc-position="bottom"><img src="../../transiesta/img/junction-modeling-06.png" width="80%" height="80%"></a></center>
 
 <p>마지막으로 junction을 모델링할 시에 고려해야할 점은 self-energy로 치환되는 <strong>electrode</strong> 영역이 완벽한 principal cell 조건을 만족해야한다는 점이다. Self-energy 계산 시의 벌크 전극의 <strong>electrode</strong> 영역의 물질과 동일한 구조를 가지며 전자 수송 방향으로 무한한 주기성을 가진다. 이러한 전극의 self-energy를 계산 시에 가장 중요한 것은 전극의 단위 격자가 전자의 수송 방향으로 반드시 가장 가까운 인접 단위 격자와만 상호작용해야 한다는 점이다 (위 그림 참조). 이는 행렬로 표현시에 tridiagonal matrix로 나타낼 수 있다 이와 같은 조건을 만족하는 단위 격자를 principal cell이라 한다. 따라서 junction을 모델링할 시에 <strong>electrode</strong> 영역을 너무 짧게 설정하지 않아야하는 것을 명심해야한다.</p>
 
@@ -2873,7 +2873,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 19, 2023 15:17:56 UTC">January 19, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 16, 2026 08:41:08 UTC">March 16, 2026</span>
   </span>
 
     

@@ -148,7 +148,7 @@ plt.show()
 ```
 계산된 k-point 별 에너지는 다음과 같다. 또한 이를 확인하면 수렴되는 에너지의 k-point가 적절히 구해졌는지 확인할 수 있다. 또한 수렴된 k-point는 리눅스 화면을 통해서 확인할 수 있다.
 
-![Screenshot](../img/k-point-sampling-01.png)
+![Screenshot](../../nanocore/img/k-point-sampling-01.png)
 ```
 kpoint is not converage
 kpoint is not converage

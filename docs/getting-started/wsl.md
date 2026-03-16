@@ -19,11 +19,11 @@ WSL2 installation: [[Link]](https://docs.microsoft.com/en-us/windows/wsl/install
 
 설치 후에 생성된 **Xlaunch**를 실행하고 아래와 같은 설정을 입력합니다.
 
-![img/Jupyter/Untitled%201.png](../img/wsl-01.png)
+![img/Jupyter/Untitled%201.png](../../getting-started/img/wsl-01.png)
 
-![img/Jupyter/Untitled%202.png](../img/wsl-02.png)
+![img/Jupyter/Untitled%202.png](../../getting-started/img/wsl-02.png)
 
-![img/Jupyter/Untitled%203.png](../img/wsl-03.png)
+![img/Jupyter/Untitled%203.png](../../getting-started/img/wsl-03.png)
 
 설정을 완료하면 백그라운드에 **Xlaunch**가 실행됩니다. 이를 확인하고 **Ubuntu** terminal에서 GUI가 제대로 작동하는지 확인하기 위해 **xeyes**를 실행시켜 봅니다. 우선 **x11** 프로그램을 **Ubuntu** 환경에 설치하겠습니다.
 
@@ -39,7 +39,7 @@ xeyes
 
 정상적으로 설치가 진행이 되었다면 다음과 같은 프로그램이 실행되는 것을 확인할 수 있습니다.
 
-![img/Jupyter/Untitled%204.png](../img/wsl-04.png)
+![img/Jupyter/Untitled%204.png](../../getting-started/img/wsl-04.png)
 
 그러나 xeyes가 실행되지 않는다면 다음과 같은 조치를 취합니다.
 
@@ -70,7 +70,7 @@ source ~/.bashrc
 
 우선 Anaconda 설치용 shell script를 설치합니다: [[Link]](https://www.anaconda.com/distribution/#download-section)
 
-![img/Jupyter/Untitled%205.png](../img/wsl-05.png)
+![img/Jupyter/Untitled%205.png](../../getting-started/img/wsl-05.png)
 
 설치된 파일[e.g. 2021년 2월 17일 기준 최신버젼: `Anaconda3-2020.11-Linux-x86_64.sh`]을 `c:` 드라이브의 기본 위치에 옮기고 **Ubuntu**를 실행합니다(. 다음과 같은 명령어를 통해 설치한 파일을 **Linux** 환경에 복사하도록 합니다. 
 
@@ -86,11 +86,11 @@ bash Anaconda3-2020.11-Linux-x86_64.sh
 
 라이센스 서약을 `Enter` 를 통해 읽고 `yes` 를 입력하여 다음으로 진행:
 
-![img/Jupyter/Untitled%206.png](../img/wsl-06.png)
+![img/Jupyter/Untitled%206.png](../../getting-started/img/wsl-06.png)
 
 `Enter` 를 입력하여 **Anaconda3** 설치 위치 설정:
 
-![img/Jupyter/Untitled%207.png](../img/wsl-07.png)
+![img/Jupyter/Untitled%207.png](../../getting-started/img/wsl-07.png)
 
 설치 진행이 완료되면 다음과 같은 명령어를 통해 **Anaconda3**가 제대로 설치된 것을 확인 할 수 있습니다.
 
@@ -98,7 +98,7 @@ bash Anaconda3-2020.11-Linux-x86_64.sh
 anaconda-navigator
 ```
 
-![img/Jupyter/Untitled%208.png](../img/wsl-08.png)
+![img/Jupyter/Untitled%208.png](../../getting-started/img/wsl-08.png)
 
 
 
@@ -165,6 +165,6 @@ jupyter notebook
 
 **(Optional: not using the remote browser)**의 방법을 사용한 경우는 아래와 같이 나타난 URLs 정보를 복사하여 자신의 브라우저 환경에 입력하면 **Jupyter notebook**에 접근할 수 있습니다.
 
-![img/Jupyter/Untitled%2010.png](../img/wsl-09.png)
+![img/Jupyter/Untitled%2010.png](../../getting-started/img/wsl-09.png)
 
-![img/Jupyter/Untitled%2011.png](../img/wsl-10.png)
+![img/Jupyter/Untitled%2011.png](../../getting-started/img/wsl-10.png)

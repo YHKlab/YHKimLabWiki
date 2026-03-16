@@ -8,7 +8,7 @@ Si-SiO<sub>2</sub>-Si junction model
 
 ## 수렴성 테스트
 
-<center><img src="../img/si-sio2-si-01.png" width="80%" height="80%"></center>
+<center><img src="../../transiesta/img/si-sio2-si-01.png" width="80%" height="80%"></center>
 
 이번 강의에서는 보다 정확하게 계산하기 위해서 필요한 사항에 대해서 논의해보기 위해 3차원의 Si-SiO<sub>2</sub>-Si 구조에 대해서 양자 수송 특성을 계산한다.
 
@@ -16,12 +16,12 @@ Si-SiO<sub>2</sub>-Si junction model
 
 Si-SiO<sub>2</sub>-Si junction model을 이용하여 buffer layer 테스트를 진행한다.
 
-<center><img src="../img/si-sio2-si-02.png" width="80%" height="80%"></center>
+<center><img src="../../transiesta/img/si-sio2-si-02.png" width="80%" height="80%"></center>
 
 #### Step 1: Electrode calculation
 electrode의 unit cell 크기는 유지한 채로 buffer layer만을 조절하여, transmission을 확인한다. 이때, electrode의 unitcell은 principal cell이 되도록 크기를 설정하였다.
 
-<center><img src="../img/si-sio2-si-03.png" width="30%" height="30%"></center>
+<center><img src="../../transiesta/img/si-sio2-si-03.png" width="30%" height="30%"></center>
 
 ```
 $ vi STRUCT.fdf
@@ -51,7 +51,7 @@ $ cp ../2.elec_right/OUT/Right.TSHS input/.
 ```
 Buffer layer 개수에 따른 구조는 다음과 같다.
 
-<center><img src="../img/si-sio2-si-04.png" width="80%" height="80%"></center>
+<center><img src="../../transiesta/img/si-sio2-si-04.png" width="80%" height="80%"></center>
 
 ```
 $ vi STRUCT.fdf
@@ -76,7 +76,7 @@ $ cp OUT/siesta.TSHS input/.
 $ qsub slm _siesta_run_tbt
 ```
 
-<center><img src="../img/si-sio2-si-05.png" width="60%" height="60%"></center>
+<center><img src="../../transiesta/img/si-sio2-si-05.png" width="60%" height="60%"></center>
 
 
 ### Exercise 2: K-point 테스트
@@ -134,7 +134,7 @@ vi 3.total/input/KPT.fdf
 
 Electrode, scatering region 계산 후 tbtrans를 통해 transmision을 비교하면 다음과 같다. 
 
-<center><img src="../img/si-sio2-si-06.png" width="60%" height="60%"></center>
+<center><img src="../../transiesta/img/si-sio2-si-06.png" width="60%" height="60%"></center>
 
 ### Exercise 3: Basis 테스트
 
@@ -145,7 +145,7 @@ Electrode, scatering region 계산 후 tbtrans를 통해 transmision을 비교�
 ```
 basis에 따른 transmission 그래프는 다음과 같다.  
 
-<center><img src="../img/si-sio2-si-07.png" width="60%" height="60%"></center>
+<center><img src="../../transiesta/img/si-sio2-si-07.png" width="60%" height="60%"></center>
 
 
 

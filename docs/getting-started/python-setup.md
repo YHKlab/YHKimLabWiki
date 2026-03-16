@@ -23,31 +23,31 @@ Miniconda 설치 과정은 아래에 서술되어 있습니다.
 **Step 1: [웹사이트](https://docs.conda.io/en/latest/miniconda-other-installer-links.html)에서 Miniconda를 다운로드 하세요.**
 
 여기에서, 당신은 OS에 맞는 installer를 고를 수 있습니다. 우리는 예시로 windows installer와 Python 3.8을 고르겠습니다.
-![Py_001](../img/python-setup-01.png)
+![Py_001](../../getting-started/img/python-setup-01.png)
 
 **Step 2: installer를 더블 클릭해서 installer를 실행시키세요**
 
 installer를 실행시켰으면, 가이드를 따르면 당신은 성공적으로 설치할 수 있을 것입니다.
 
-![Py_002](../img/python-setup-02.png)
+![Py_002](../../getting-started/img/python-setup-02.png)
 
 한가지 알면 좋은 것은 당신은 컴퓨터의 다른 경로를 지정함으로써 설치 경로를 바꿀 수 있다는 것입니다. 여기에서는, 기본 경로를 사용하겠습니다.
 
-![Py_003](../img/python-setup-03.png)
+![Py_003](../../getting-started/img/python-setup-03.png)
 
 설치 후에는 anaconda prompt(Mac이나 Linux의 터미널에 해당하는)를 시작 메뉴에서 열 수 있습니다.
 
-![Py_004](../img/python-setup-04.png)
+![Py_004](../../getting-started/img/python-setup-04.png)
 
 그 후엔 우리는 다음 명령어를 쳐서 설치가 성공적으로 이루어졌는지 아닌지 확인할 수 있습니다:
 
-![Py_005](../img/python-setup-05.png)
+![Py_005](../../getting-started/img/python-setup-05.png)
 
 **Step 3: 기본적인 패키지들을 설치해보세요**
 
 우리는 처음에 몇몇 패키지들을 설치할 것입니다. - ipython, numpy, scipy, pandas, matplotlib 그리고 jupyter notebook
 
-![Py_006](../img/python-setup-06.png)
+![Py_006](../../getting-started/img/python-setup-06.png)
 
 ## Python을 실행하는 세가지 방법
 
@@ -57,7 +57,7 @@ Python을 실행하는 방법에는 여러가지가 있고, 그들은 모두 다
 
 Python 코드를 실행시키는 가장 쉬운 방법은 Python shell이나 Ipython shell (인터랙티브 Python에 해당)을 사용하는 것입니다. Ipython shell은 Python shell보다 더 다양한 기능을 제공하고, 그 예로는 탭 자동완성, 하이라이트된 에러 메세지, 기본적인 UNIX 쉘 통합 등등이 있습니다. 우리는 Ipython만 설치했기 때문에 "hello world" 예제를 이를 이용해서 실행시켜 보겠습니다. Python shell이나 Ipython shell을 실행시키는 방법은 터미널에 타이핑 하는 것입니다 (아래 그림을 보세요).그러면 우리는 Python 명령어를 shell에 타이핑하고 enter를 누르는 것으로 실행시킬 수 있고, 즉시 그 결과를 볼 수 있습니다. 예를 들어 print("Hello World")를 shell에 타이핑하면 "Hello World"가 출력되는 것을 볼 수 있습니다:
 
-![Py_007](../img/python-setup-07.png)
+![Py_007](../../getting-started/img/python-setup-07.png)
 
 위의 명령어에서 print()는 Python의 함수이고, "Hello World"는 string 데이터 타입입니다.
 
@@ -65,11 +65,11 @@ Python 코드를 실행시키는 가장 쉬운 방법은 Python shell이나 Ipyt
 
 Python 코드를 실행시키는 두 번째 방법은 모든 명령어를 파일에 넣고 확장자 .py를 가지는 파일로 저장하는 것입니다(확장자는 아무거나 될 수 있지만 보통 .py를 사용합니다). 예를 들어 당신이 좋아하는 텍스트 편집기(여기서 사용된건 Visual Studio Code입니다)를 사용하여 명령어들을 *hello_world.py*라는 파일에 넣어보세요:
 
-![Py_008](../img/python-setup-08.png)
+![Py_008](../../getting-started/img/python-setup-08.png)
 
 그 후에 터미널에서 실행시키세요:
 
-![Py_009](../img/python-setup-09.png)
+![Py_009](../../getting-started/img/python-setup-09.png)
 
 **Jupyter Notebook 사용**
 
@@ -80,10 +80,10 @@ jupyter notebook
 ```
 
 그러면 로컬 웹페이지가 뜰 것입니다. 오른쪽 위의 버튼을 눌러 새로운 Python3 notebook을 만드세요:
-![Py_010](../img/python-setup-10.png)
+![Py_010](../../getting-started/img/python-setup-10.png)
 
 Jupyter notebook에서 코드를 실행시키는 것은 쉽습니다. cell에 코드를 적고, shift + enter를 누르시면 결과가 코드 밑에 나오게 됩니다.
-![Py_011](../img/python-setup-11.png)
+![Py_011](../../getting-started/img/python-setup-11.png)
 
 ## The Zen of Python
 

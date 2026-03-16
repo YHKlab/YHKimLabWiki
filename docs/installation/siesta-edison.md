@@ -9,7 +9,7 @@ Edison에서 SIESTA 설치
 NanoR&D EDISON 포털에서 Jupyter Notebook 기반 실습(ATOM, SIESTA)을 진행하려면 먼저 EDISON 계정이 필요하다.   
 `https://nanornd.edison.re.kr/` 에 접속하여 상단에 있는 **Sign In** 버튼을 눌러 회원가입을 진행하자.  
 
-![alt text](../img/siesta-edison-01.png)  
+![alt text](../../installation/img/siesta-edison-01.png)  
 
 회원가입이 완료되었다면 회원가입 시 입력했던 아이디와 비밀번호를 통해 로그인한다.  
 상단의 메뉴바에서 `Tool` - `Jupyter Notebook` 을 눌러 들어간다.  
@@ -41,7 +41,7 @@ $ vi ~/.bashrc
 export PATH='HOME/miniconda3/bin:$PATH'
 (insert버튼 후 위의 내용을 입력한 뒤 esc버튼 후 :wq 입력하면 저장된다)
 ```  
-![alt text](../img/siesta-edison-02.png)
+![alt text](../../installation/img/siesta-edison-02.png)
 
 
 ```bash
@@ -89,5 +89,5 @@ mpirun --mca plm isolated -np 4 siesta
 ```   
 아래 그림과 같이 나온다면 설치가 잘 완료된 것이다.
 
-![alt text](../img/siesta-edison-03.png)
+![alt text](../../installation/img/siesta-edison-03.png)
 

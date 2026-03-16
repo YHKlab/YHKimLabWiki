@@ -106,7 +106,7 @@ Corresponding result in `stdout.txt` is
 
 The following NEB example [[1]](https://www.vasp.at/wiki/index.php/Collective_jumps_of_a_Pt_adatom_on_fcc-Pt_(001):_Nudged_Elastic_Band_Calculation) is about calculation of the energy barrier for the self-diffusion of a Pt-adatom on Pt(001). The most stable adsorption site of the adatom Pt@Pt(001) is the hollow(*h*) position.
 
-![Screenshot](../img/machine-learning-neb-01.jpg){style="height:200px;width:320px"}
+![Screenshot](../../vasp/img/machine-learning-neb-01.jpg){style="height:200px;width:320px"}
 
 Simple models of the diffusion of the adatom from *h* to the neighboring *h* site are provided below,
 #### 2-1. Set up VASP calculation 
@@ -279,7 +279,7 @@ plt.show()
 ```
 The results are shown as
 
-![Screenshot](../img/machine-learning-neb-02.png)
+![Screenshot](../../vasp/img/machine-learning-neb-02.png)
 
 ---
 
@@ -356,13 +356,13 @@ The `.traj` file can be read with `ase gui`
 ase gui ML-NEB.traj
 ```
 
-![Screenshot](../img/machine-learning-neb-03.png)
+![Screenshot](../../vasp/img/machine-learning-neb-03.png)
 
 ```yaml
 ase gui evaluated_structures.traj
 ```
 
-![Screenshot](../img/machine-learning-neb-04.png)
+![Screenshot](../../vasp/img/machine-learning-neb-04.png)
 
 
 #### 3-3. ML-NEB result visualization
@@ -429,7 +429,7 @@ plt.show()
 ```
 The results are shown as
 
-![Screenshot](../img/machine-learning-neb-05.png)
+![Screenshot](../../vasp/img/machine-learning-neb-05.png)
 
 ---
 
@@ -438,7 +438,7 @@ A great advantage of ML-NEB method comparing classical NEB is **independent of t
 
 Increase transition state images (from `11` to `38`) on the previous example:
 
-![Screenshot](../img/machine-learning-neb-06.png)
+![Screenshot](../../vasp/img/machine-learning-neb-06.png)
 
 |||    **Classical NEB**    || **ML based NEB**  
 |||    -------------    ||  ------------

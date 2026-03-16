@@ -16,7 +16,7 @@ Au bulk 전자 구조 계산
 Au bulk에 대한 geometry optimization을 진행해야 한다. 
 SIESTA 계산을 위한 input 파일들은 ‘1.Gold(band, work function)' 폴더 안에 정리해 두었다.
 
-![unit_cell](../img/gold-bulk-01.png){:align=right style="height:250px"}
+![unit_cell](../../siesta/img/gold-bulk-01.png){:align=right style="height:250px"}
 
 |     Basis size     |      DZP       |
 | :----------------: | :------------: |
@@ -58,7 +58,7 @@ $ grep "Total =" */stdout.txt
 
 ```
 
-![01_001](../img/gold-bulk-02.png){: style="display:block; height:500px; margin-left:auto; margin-right:auto;" }
+![01_001](../../siesta/img/gold-bulk-02.png){: style="display:block; height:500px; margin-left:auto; margin-right:auto;" }
 
 앞선 계산의 DFT parameter 중 SCF Convergence의 Tolerance를 $10^{-3}$ eV로 설정하였기 때문에 k-point가 35에서 수렴한다고 판단할 수 있다.
 
@@ -112,7 +112,7 @@ $ grep "Total =" */stdout.txt
 <br>계산된 결과를 이용해 에너지가 가장 낮은 lattice constant를 **murnaghan fitting**을 통해 찾았다. 
 <br>최적화된 volume은 69.28785 Å³이고, 이를 통해 lattice constant를 구하려면 부피의 세제곱근을 하면 된다. 따라서 lattice constant는 4.107Å이고, 이를 FCC unit cell의 한 변의 길이로 치환하면 2.904Å이 된다.
 
-![01_002](../img/gold-bulk-03.png){: style="display:block; height:350px; margin-left:auto; margin-right:auto;" }
+![01_002](../../siesta/img/gold-bulk-03.png){: style="display:block; height:350px; margin-left:auto; margin-right:auto;" }
 
 > lattice constant = 2.904 Å
 
@@ -152,19 +152,19 @@ Gold Bulk에 대한 geometry optimization은 끝났으므로 지금부터 `CG st
 ### 1) Bands
 이번에는 Au의 Band를 한번 그려볼 것이다. Band 계산에서는 path에 따라 band가 다르게 보이므로 high symmetry band point를 우선으로 하되, 계산하는 물성의 특성상 주목해야할 band point가 있는지 확인해야 한다. band structure를 그릴 때 사용할 [reference](https://www.sciencedirect.com/science/article/pii/S0927025614007940#t0015)는 이 band 그래프이다. 우리는 이 band 그래프를 siesta 계산을 통해 동일하게 한번 그려볼 것이다.  
 
-![ref_band](../img/gold-bulk-04.png){: style="display:block; height:300px; margin-left:auto; margin-right:auto;" }
+![ref_band](../../siesta/img/gold-bulk-04.png){: style="display:block; height:300px; margin-left:auto; margin-right:auto;" }
 
 위 그래프에서 band path는 $\Gamma-X-W-L-\Gamma-K$순으로 진행되고 있음을 볼 수 있다. 이와 같은 순서로 그리려면 siesta의 옵션을 이용하여 동일한 band path를 잡아줘야 한다. 우선 xcrysden으로 band path를 잡는 방법과 이를 siesta에 적용하는 방법을 소개하도록 하겠다.
 처음으로 model을 xcrysden로 불러온다. 그 다음에 tools의 k-path selection을 선택하면 band path의 좌표를 계산해주는 화면이 나온다.
 
-![kpath](../img/gold-bulk-05.png){: style="display:block; height:300px; margin-left:auto; margin-right:auto;" }
+![kpath](../../siesta/img/gold-bulk-05.png){: style="display:block; height:300px; margin-left:auto; margin-right:auto;" }
 
 
 그 다음에는 그리려고 하는 물질의 critical point를 골라 band path를 올바르게 선택하면 된다. Au는 FCC구조이므로 아래 그림과 같은 brillouin zone에서 살펴봐야 할 점을 xcrysden으로 선택하면 된다. [brillouin zone](https://wiki.fysik.dtu.dk/ase/ase/dft/bztable.html)
 
-![zone](../img/gold-bulk-06.png){: align=right style="height:300px"}
+![zone](../../siesta/img/gold-bulk-06.png){: align=right style="height:300px"}
 
-![band_path](../img/gold-bulk-07.png){: align=center style="height:300px"}
+![band_path](../../siesta/img/gold-bulk-07.png){: align=center style="height:300px"}
 
 band path의 좌표를 알아냈다면 xcrysden 창의 오른쪽에 적힌 숫자들을 tutorial 1에서 했던 것처럼 RUN.fdf에 넣으면 된다. RUN.fdf에는 다음의 부분을 추가해주면 된다.
 
@@ -217,10 +217,10 @@ set ylabel 'Energy [eV]'
 set arrow from 0, -3.505839, graph 1 to 3.185731, -3.505839 ls 3 // Fermi level plot
 ```
 
-![01_003](../img/gold-bulk-08.png){: style="display:block; height:300px; margin-left:auto; margin-right:auto;" }
+![01_003](../../siesta/img/gold-bulk-08.png){: style="display:block; height:300px; margin-left:auto; margin-right:auto;" }
 
 이와 같이 그리게 되면 reference와 흡사한 band 그림을 만들 수 있다. 그러나, 보통 band 그래프를 그리게 되면 y축은 $E-E_F$을 사용하고, x축은 band path는 숫자가 아닌 $\Gamma-X-W-L-\Gamma-K$와 같은 band point로 표현한다.
 Origin을 사용해서 에너지를 Fermi Energy에 맞춰준 band path를 그려보면 결과는 다음과 같다.
 
-![01_010](../img/gold-bulk-09.png){: style="display:block; height:300px; margin-left:auto; margin-right:auto;" }
+![01_010](../../siesta/img/gold-bulk-09.png){: style="display:block; height:300px; margin-left:auto; margin-right:auto;" }
 

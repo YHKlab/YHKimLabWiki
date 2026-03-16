@@ -7,14 +7,14 @@ Graphene (2D)
 
 ## Graphene의 양자수송 특성 계산
 
-<center><img src="../img/graphene-01.png" width="80%" height="80%"></center>
+<center><img src="../../transiesta/img/graphene-01.png" width="80%" height="80%"></center>
 
 이번 장에서는 2차원 물질인 그래핀에 대해서 양자수송 특성을 계산한다.
 
 
 ### Step 1: Electrode calculation
 
-<center><img src="../img/graphene-02.png" width="30%" height="30%"></center>
+<center><img src="../../transiesta/img/graphene-02.png" width="30%" height="30%"></center>
 
 Electrode에 대해 DFT 계산을 통해 `elec.TSHS` 를 얻는다. 우리의 모델의 경우 x축 방향으로 periodic 구조를 가지지 않는다. 때문에 x방향으로의 k-point를 1로 지정해주었다. Eleectrode 계산 시에 사용된 k-point가 추후에 scattering 계산을 통한 양자수속 특성 계산의 정확도 큰 영향을 미치기 때문에 반드시 **k-point에 대해 수렴성 테스트**를 진행해야한다. 특히 양자 수송 방향(z-축)으로 더욱 엄격히 k-point를 주어야 보다 정확한 전극의 self-energy를 얻을 수 있다.
 
@@ -152,7 +152,7 @@ def get_xy_array(filename):
 
 ```
 
-<center><img src="../img/graphene-03.png" width="60%" height="60%"></center>
+<center><img src="../../transiesta/img/graphene-03.png" width="60%" height="60%"></center>
 
 
 ## Exercise 1: K-point effect
@@ -169,14 +169,14 @@ $ vi KPT.fdf
 %endblock kgrid_Monkhorst_Pack
 ```
 
-<center><img src="../img/graphene-04.png" width="60%" height="60%"></center>
+<center><img src="../../transiesta/img/graphene-04.png" width="60%" height="60%"></center>
 
 k-point를 증가시키자 transmission 그래프가 매끄러워진 것을 확인할 수 있다. 
 
 ## Exercise 2: Channel width effect
 폭이 2배 넓은 모델의 T(E) 과 원래 T(E) 그래프를 비교해 보자.
 
-<center><img src="../img/graphene-05.png" width="60%" height="60%"></center>
+<center><img src="../../transiesta/img/graphene-05.png" width="60%" height="60%"></center>
 
 electrode의 구조가 달라졌으므로, electrode calculation부터 진행해야한다.<br/> STRUCT.fdf 파일을 간략하게 보면, atom 개수와 lattice vector의 y축 길이가 늘어난 것을 확인할 수 있다.
 ```
@@ -218,6 +218,6 @@ $ vi 4.Graphene_wider_k30/input/KPT.fdf
  0    0    1    0.0
 %endblock kgrid_Monkhorst_Pack
 ```
-<center><img src="../img/graphene-06.png" width="60%" height="60%"></center>
+<center><img src="../../transiesta/img/graphene-06.png" width="60%" height="60%"></center>
 
 위와 같이 transmission 값이 두배가 되는 것을 확인할 수 있다.

@@ -117,7 +117,7 @@ plb.text(0.02,0.90,'Bulk modulus = %1.2f eV/$\AA^3$ = %1.2f GPa'
 plb.savefig('3d_eos.png')
 plb.show()
 ```
-![02_02](../img/murnaghan-fitting-01.png)
+![02_02](../../nanocore/img/murnaghan-fitting-01.png)
 
 ---
 > 참고문헌 :

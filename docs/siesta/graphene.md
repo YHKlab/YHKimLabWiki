@@ -53,7 +53,7 @@ set arrow from 0, -4.5682, graph 1 to 2.1270, -4.5682 ls 3 // Fermi level plot
 replot
 ```
 
-![02_001](../img/graphene-01.png){: style="display:block; height:300px; margin-left:auto; margin-right:auto;" }
+![02_001](../../siesta/img/graphene-01.png){: style="display:block; height:300px; margin-left:auto; margin-right:auto;" }
   
 Fat band 시각화 
 <br>폴더에 있는 fat 파일과 eigfat2plot 파일을 output file에 넣어준다.
@@ -90,7 +90,7 @@ gnuplot> set arrow from 0, -4.5682, graph 1 to 2.1270, -4.5682 ls 3 # Fermi leve
 gnuplot> replot
 ```
 
-![02_002](../img/graphene-02.png){: style="display:block; height:300px; margin-left:auto; margin-right:auto;" }
+![02_002](../../siesta/img/graphene-02.png){: style="display:block; height:300px; margin-left:auto; margin-right:auto;" }
 
 ### 2) DOS, PDOS
 DOS, PDOS 계산을 위해 다음과 같은 옵션을 KPT.fdf에 추가한다. 
@@ -124,7 +124,7 @@ set arrow from -4.5682, 0, graph 1 to -4.5682, 0.3 ls 3
 replot
 ```
 
-![02_003](../img/graphene-03.png){: style="display:block; height:300px; margin-left:auto; margin-right:auto;" }
+![02_003](../../siesta/img/graphene-03.png){: style="display:block; height:300px; margin-left:auto; margin-right:auto;" }
 <br><br><br>
 PDOS 시각화
 
@@ -171,7 +171,7 @@ set arrow from -4.5682, 0, graph 1 to -4.5682, 0.3 ls 3
 replot
 ```
 
-![02_004](../img/graphene-04.jpg){: style="display:block; height:300px; margin-left:auto; margin-right:auto;" }
+![02_004](../../siesta/img/graphene-04.jpg){: style="display:block; height:300px; margin-left:auto; margin-right:auto;" }
 
 ### 3) LDOS
 LDOS 계산을 위해 다음과 같은 옵션을 RUN.fdf 파일에 넣어준다.
@@ -199,9 +199,9 @@ Add grid property (LDOS, RHO, ...; or BYE if none): BYE
 $ xcrysden --xsf Graphene.XSF
 ```
   
-![02_005](../img/graphene-05.jpg){: style="display:block; height:250px; margin-left:auto; margin-right:auto;" }
+![02_005](../../siesta/img/graphene-05.jpg){: style="display:block; height:250px; margin-left:auto; margin-right:auto;" }
   
 여기서 isovalue는 임의의 적당한 값을 입력하면 되는데 LDOS를 적절하게 분석할 수 있을 정도의 값을 넣어주면 된다. 이번 Tutorial에서는 0.000005의 값을 입력했다.
 
-![02_006](../img/graphene-06.jpg){: style="display:block; height:250px; margin-left:auto; margin-right:auto;" }
+![02_006](../../siesta/img/graphene-06.jpg){: style="display:block; height:250px; margin-left:auto; margin-right:auto;" }
 

@@ -33,7 +33,7 @@ HPC 실습에 필요한 수준에서 다음을 익히는 데 초점을 둔다.
 정리하면, HPC는 단순히 "더 좋은 컴퓨터"가 아니라 연구용 계산과 공용 실습 환경을 안정적으로 제공하는 작업 기반이다.
 
 ### 1.1.3. ASDSLab (YHKlab) 클러스터 구성 (26.03.07)
-![YHKlab 클러스터 구성](../img/lab-cluster-01.jpeg)
+![YHKlab 클러스터 구성](../../getting-started/img/lab-cluster-01.jpeg)
 
 ## 1.2. 왜 Linux를 배우는가: Linux 소개
 
@@ -179,9 +179,9 @@ VS Code Explorer로 드래그-드롭
 4. 예를 들어 `/home/class/...`, `/home2/class/...`, `/home/class/2026_EE545/2026xxxx_jeongwon/` 같은 경로를 입력한 뒤 `확인`을 누른다.
 5. Explorer가 해당 폴더 기준으로 다시 열리면, 그 안에서 파일을 만들고 편집하고 실행한다.
 
-![원격 폴더 열기 화면](../img/lab-cluster-02.png)
+![원격 폴더 열기 화면](../../getting-started/img/lab-cluster-02.png)
 
-![명령 팔레트 이후 원격 폴더 경로를 직접 입력하는 예시](../img/lab-cluster-03.png)
+![명령 팔레트 이후 원격 폴더 경로를 직접 입력하는 예시](../../getting-started/img/lab-cluster-03.png)
 
 예를 들면 `/home/class/...` 아래의 개인 실습 폴더를 열 수 있다. 이렇게 ***폴더를 열어 작업 공간을 한정해야 클러스터 호스트 서버의 부하를 줄일 수 있다.*** 
 
@@ -409,7 +409,7 @@ ase gui
 
 정상적으로 연결되면 다음과 같이 로컬 화면에 창이 뜬다.
 
-![ASE GUI 예시 창](../img/lab-cluster-04.png)
+![ASE GUI 예시 창](../../getting-started/img/lab-cluster-04.png)
 
 ---
 # 3. 자주 생기는 문제

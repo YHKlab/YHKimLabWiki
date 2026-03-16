@@ -128,7 +128,7 @@ plb.text(0.02,0.90,'Minimum lattice constant : %1.2f $\AA$' % optimized_latticec
 plb.savefig('EOS.png')
 plb.show()
 ```
-![Nano02_01](../img/equation-of-state-01.png)
+![Nano02_01](../../nanocore/img/equation-of-state-01.png)
 
 
 > Appendix : [Murnaghan 상태방정식](murnaghan-fitting.md)

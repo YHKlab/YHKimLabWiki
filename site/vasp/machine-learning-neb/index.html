@@ -3131,7 +3131,7 @@ Corresponding result in <code>stdout.txt</code> is
 <hr>
 <h3 id="2-classical-neb-calculation"><strong>2. Classical NEB calculation</strong></h3>
 <p>The following NEB example <a href="https://www.vasp.at/wiki/index.php/Collective_jumps_of_a_Pt_adatom_on_fcc-Pt_(001):_Nudged_Elastic_Band_Calculation">[1]</a> is about calculation of the energy barrier for the self-diffusion of a Pt-adatom on Pt(001). The most stable adsorption site of the adatom Pt@Pt(001) is the hollow(<em>h</em>) position.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/machine-learning-neb-01.jpg" data-desc-position="bottom"><img alt="Screenshot" src="../img/machine-learning-neb-01.jpg" style="height:200px;width:320px"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../vasp/img/machine-learning-neb-01.jpg" data-desc-position="bottom"><img alt="Screenshot" src="../../vasp/img/machine-learning-neb-01.jpg" style="height:200px;width:320px"></a></p>
 <p>Simple models of the diffusion of the adatom from <em>h</em> to the neighboring <em>h</em> site are provided below,</p>
 <h4 id="2-1-set-up-vasp-calculation">2-1. Set up VASP calculation</h4>
 <ul>
@@ -3293,7 +3293,7 @@ The output: <code># image</code>, <code>distance</code>, <code>energy</code>, <c
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 The results are shown as<p></p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/machine-learning-neb-02.png" data-desc-position="bottom"><img alt="Screenshot" src="../img/machine-learning-neb-02.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../vasp/img/machine-learning-neb-02.png" data-desc-position="bottom"><img alt="Screenshot" src="../../vasp/img/machine-learning-neb-02.png"></a></p>
 <hr>
 <h3 id="3-ml-based-neb-calculation"><strong>3. ML based NEB calculation</strong></h3>
 <p>A surrogate Gaussian process regression (<code>GPR</code>) <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.122.156001">[2]</a> atomistic model to greatly acclerate the rate of convergence of classical NEB calculations. The algorithm presented here eliminates <strong>any need for manipulating the number of images to obtain a converged result</strong>.</p>
@@ -3367,10 +3367,10 @@ The results are shown as<p></p>
 <p>The <code>.traj</code> file can be read with <code>ase gui</code>
 </p><div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">ase gui ML-NEB.traj</span>
 </code></pre></div><p></p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/machine-learning-neb-03.png" data-desc-position="bottom"><img alt="Screenshot" src="../img/machine-learning-neb-03.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../vasp/img/machine-learning-neb-03.png" data-desc-position="bottom"><img alt="Screenshot" src="../../vasp/img/machine-learning-neb-03.png"></a></p>
 <div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">ase gui evaluated_structures.traj</span>
 </code></pre></div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/machine-learning-neb-04.png" data-desc-position="bottom"><img alt="Screenshot" src="../img/machine-learning-neb-04.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../vasp/img/machine-learning-neb-04.png" data-desc-position="bottom"><img alt="Screenshot" src="../../vasp/img/machine-learning-neb-04.png"></a></p>
 <h4 id="3-3-ml-neb-result-visualization">3-3. ML-NEB result visualization</h4>
 <p>You can save the figure results in <code>ase gui</code> or use the following python script (<code>plot_mlneb.py</code>).
 </p><div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
@@ -3432,12 +3432,12 @@ The results are shown as<p></p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 The results are shown as<p></p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/machine-learning-neb-05.png" data-desc-position="bottom"><img alt="Screenshot" src="../img/machine-learning-neb-05.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../vasp/img/machine-learning-neb-05.png" data-desc-position="bottom"><img alt="Screenshot" src="../../vasp/img/machine-learning-neb-05.png"></a></p>
 <hr>
 <h3 id="4-comparison">4. Comparison</h3>
 <p>A great advantage of ML-NEB method comparing classical NEB is <strong>independent of the number of moving images composing the path</strong>.</p>
 <p>Increase transition state images (from <code>11</code> to <code>38</code>) on the previous example:</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/machine-learning-neb-06.png" data-desc-position="bottom"><img alt="Screenshot" src="../img/machine-learning-neb-06.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../vasp/img/machine-learning-neb-06.png" data-desc-position="bottom"><img alt="Screenshot" src="../../vasp/img/machine-learning-neb-06.png"></a></p>
 <table>
 <thead>
 <tr>

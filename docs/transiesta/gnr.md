@@ -12,13 +12,13 @@ Graphene nanoribbons
 
 ## Pristine graphene nanoribbons
 
-<center><img src="../img/gnr-01.jpg" width="80%" height="80%"></center>
+<center><img src="../../transiesta/img/gnr-01.jpg" width="80%" height="80%"></center>
 
 이번 장에서는 위와 같은 zigzag graphene nanoribbons (GNRs) 구조에 대해 계산한다.
 
 ### Step 1. Electrode calculation
 
-<center><img src="../img/gnr-02.jpg" width="50%" height="50%"></center>
+<center><img src="../../transiesta/img/gnr-02.jpg" width="50%" height="50%"></center>
 
 전극은 z축 방향으로 주기적 조건을 만족하는 GNRs의 2개의 unit cell로 구성되어 있다.  
 
@@ -53,7 +53,7 @@ $ qsub slm_siesta_run
 
 ### Step 2. Scatting region calculation
 
-<center><img src="../img/gnr-03.jpg" width="80%" height="80%"></center>
+<center><img src="../../transiesta/img/gnr-03.jpg" width="80%" height="80%"></center>
 
 Electrode 계산을 끝내고, 위와 같이 채널 영역의 길이가 2-unit cell으로 설정한 scattering 계산하기 위해 2.6unit-GNR_SZ 폴더에 들어간다. 그 다음 1.Electrode 폴더에 생성된 elec.TSHS 파일을 2.6unit-GNR_SZ의 input폴더에 넣어준다. 
 
@@ -118,7 +118,7 @@ $ qsub slm_transiesta_run_TBT
 
 채널 영역의 길이가 6-unit cell인 경우에 대해서도 TranSIESTA와 TBTrans 계산을 진행한다
 
-<center><img src="../img/gnr-04.jpg" width="80%" height="80%"></center>
+<center><img src="../../transiesta/img/gnr-04.jpg" width="80%" height="80%"></center>
 
 ```
 $ cd ../3.10unit-GNR_SZ
@@ -137,7 +137,7 @@ $ cp 3.10unit-GNR_SZ/tbtrans/scat.AVTRANs_Left-Right ./scat.TBT.AVTRANS_10unit
 $ python show_trans.py scat.TBT.AVTRANS_6unit scat.TBT.AVTRANS_10unit
 ```
 
-<center><img src="../img/gnr-05.jpg" width="50%" height="50%"></center>
+<center><img src="../../transiesta/img/gnr-05.jpg" width="50%" height="50%"></center>
 
 
 그림에서 보면 channel의 unit 개수와 상관없이 trasmission은 동일한 것을 확인할 수 있다.
@@ -145,13 +145,13 @@ $ python show_trans.py scat.TBT.AVTRANS_6unit scat.TBT.AVTRANS_10unit
 
 ## N-doped graphene nanoribbons
 
-<center><img src="../img/gnr-06.jpg" width="80%" heigh   1="80%"></center>
+<center><img src="../../transiesta/img/gnr-06.jpg" width="80%" heigh   1="80%"></center>
 
 위와 같이 pristine GNRs에 모델에서 채널 영역에 N-dopant를 추가하여 도핑시킨 모델에 대해서 계산을 진행해보자.
 
 - 2-unit channel
 
-<center><img src="../img/gnr-07.jpg" width="60%" height="60%"></center>
+<center><img src="../../transiesta/img/gnr-07.jpg" width="60%" height="60%"></center>
 
 먼저 2-unit cell의 채널의 길이를 계산을 진행한다.
 
@@ -167,7 +167,7 @@ $ qsub slm_siesta_run_tbt
 
 - 6-unit channel
 
-<center><img src="../img/gnr-08.jpg" width="70%" height="70%"></center>
+<center><img src="../../transiesta/img/gnr-08.jpg" width="70%" height="70%"></center>
 
 6-unit cell의 채널의 길이를 계산을 진행한다.
 ```
@@ -181,7 +181,7 @@ $ qsub slm_siesta_run_tbt
 
 - 10-unit channel
 
-<center><img src="../img/gnr-09.jpg" width="80%" height="80%"></center>
+<center><img src="../../transiesta/img/gnr-09.jpg" width="80%" height="80%"></center>
 
 10-unit cell의 채널의 길이를 계산을 진행한다.
 ```
@@ -204,4 +204,4 @@ $ cp 6.14unit-GNR+N_SZ/TBtrans/scat.TBT.AVTRANS_Left-Right ./scat.TBT.AVTRANS_Nd
 $ python show_trans.py scat.TBT.AVTRANS_Ndopant_6unit scat.TBT.AVTRANS_Ndopant_10unit scat.TBT.AVTRANS_Ndopant_14unit
 ```
 
-<center><img src="../img/gnr-10.jpg" width="50%" height="50%"></center>
+<center><img src="../../transiesta/img/gnr-10.jpg" width="50%" height="50%"></center>

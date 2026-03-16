@@ -14,7 +14,7 @@
 이번 장에서는 원자에 대해 밀도범함수론(density functional theory, DFT) 기반의 전(全)전자(all-electron) 계산을 수행하고, 얻어진 결과를 이용하여 전자 배치 변화에 따른 에너지 차이를 비교한다.
 이를 통해 이온화 효과, Hund’s rule, spin polarization이 실제 계산에서 어떻게 나타나는지를 확인한다. 
  
-[Tutorial](../img/build/Tutorial.tar.gz){ .md-button }
+[Tutorial](../../atom/img/build/Tutorial.tar.gz){ .md-button }
 
 ```bash
 $tar -zxvf Tutorial.tar.gz
@@ -113,7 +113,7 @@ $ gnuplot -persist charge.gplot
 • `core charge`   
 • `valence charge`   
    
-<img src="../img/all-electron-06.png" width="500" height="400"/>
+<img src="../../atom/img/all-electron-06.png" width="500" height="400"/>
 
 그래프를 통해 다음과 같은 특징을 확인할 수 있다.
 
@@ -153,11 +153,11 @@ $node = n-l-1$
 <table>
   <tr>
     <td align="center">
-      <img src="../img/all-electron-01.png" alt="Radial wavefunction" /><br>
+      <img src="../../atom/img/all-electron-01.png" alt="Radial wavefunction" /><br>
       Radial wavefunction
     </td>
     <td align="center">
-      <img src="../img/all-electron-02.png" alt="Applied Quantum Physics chapter 11.3.2" /><br>
+      <img src="../../atom/img/all-electron-02.png" alt="Applied Quantum Physics chapter 11.3.2" /><br>
       Applied Quantum Physics ch. 11.3.2
     </td>
   </tr>
@@ -228,7 +228,7 @@ $gnuplot --persist charge+3.gplot
 $gnuplot --persist vcharge+3.gplot
 ```
 
-![alt text](../img/all-electron-03.png)   
+![alt text](../../atom/img/all-electron-03.png)   
 Left : Core charge / Right : Valence charge
 
 charge density를 비교하면 core charge에서는 큰 차이가 없으나, valence charge가 감소하고,   
@@ -241,7 +241,7 @@ charge density를 비교하면 core charge에서는 큰 차이가 없으나, val
 $cd ../../2.N/
 $gedit n_hund.ae.inp
 ```
-![alt text](../img/all-electron-04.png)  
+![alt text](../../atom/img/all-electron-04.png)  
 • ca : 비편극(non-pol) 계산 (스핀 분리 없이 점유수 1개만 입력)  
 • cas : spin-polarized 계산 (각 오비탈 점유수를 up down 두 개로 입력)  
 
@@ -315,7 +315,7 @@ cd ../../3.pb
 ls
 gedit pb_relat.ae.inp pb_non_relat.ae.inp
 ```
-![alt text](../img/all-electron-05.png)   
+![alt text](../../atom/img/all-electron-05.png)   
 • ca : 상대론적 효과 고려하지 않는 옵션  
 • car : 상대론적 효과 고려하는 옵션
 ```bash

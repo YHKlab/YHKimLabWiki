@@ -2950,11 +2950,11 @@
 </blockquote>
 <p><br><br><br></p>
 <h2 id="pristine-graphene-nanoribbons">Pristine graphene nanoribbons</h2>
-<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/gnr-01.jpg" data-desc-position="bottom"><img src="../img/gnr-01.jpg" width="80%" height="80%"></a></center>
+<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../transiesta/img/gnr-01.jpg" data-desc-position="bottom"><img src="../../transiesta/img/gnr-01.jpg" width="80%" height="80%"></a></center>
 
 <p>이번 장에서는 위와 같은 zigzag graphene nanoribbons (GNRs) 구조에 대해 계산한다.</p>
 <h3 id="step-1-electrode-calculation">Step 1. Electrode calculation</h3>
-<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/gnr-02.jpg" data-desc-position="bottom"><img src="../img/gnr-02.jpg" width="50%" height="50%"></a></center>
+<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../transiesta/img/gnr-02.jpg" data-desc-position="bottom"><img src="../../transiesta/img/gnr-02.jpg" width="50%" height="50%"></a></center>
 
 <p>전극은 z축 방향으로 주기적 조건을 만족하는 GNRs의 2개의 unit cell로 구성되어 있다.  </p>
 <div class="highlight"><pre><span></span><code>$ cd 1. Electrode_SZ
@@ -2980,7 +2980,7 @@ TS.HS.Save            T
 $ qsub slm_siesta_run
 </code></pre></div><p></p>
 <h3 id="step-2-scatting-region-calculation">Step 2. Scatting region calculation</h3>
-<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/gnr-03.jpg" data-desc-position="bottom"><img src="../img/gnr-03.jpg" width="80%" height="80%"></a></center>
+<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../transiesta/img/gnr-03.jpg" data-desc-position="bottom"><img src="../../transiesta/img/gnr-03.jpg" width="80%" height="80%"></a></center>
 
 <p>Electrode 계산을 끝내고, 위와 같이 채널 영역의 길이가 2-unit cell으로 설정한 scattering 계산하기 위해 2.6unit-GNR_SZ 폴더에 들어간다. 그 다음 1.Electrode 폴더에 생성된 elec.TSHS 파일을 2.6unit-GNR_SZ의 input폴더에 넣어준다. </p>
 <p>scattering region은 2-unit cell로 구성되어 있으나, Transiesta 계산에서 사용하는 <code>STRUCT.fdf</code> 파일에서는 양쪽의 electrode 영역도 포함되어 있다.</p>
@@ -3029,7 +3029,7 @@ $ qsub slm_transiesta_run_TBT
 </code></pre></div>
 <h3 id="channel-2-vs-6-unit-cell">Channel 영역의 길이: 2 vs 6 unit cell</h3>
 <p>채널 영역의 길이가 6-unit cell인 경우에 대해서도 TranSIESTA와 TBTrans 계산을 진행한다</p>
-<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/gnr-04.jpg" data-desc-position="bottom"><img src="../img/gnr-04.jpg" width="80%" height="80%"></a></center>
+<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../transiesta/img/gnr-04.jpg" data-desc-position="bottom"><img src="../../transiesta/img/gnr-04.jpg" width="80%" height="80%"></a></center>
 
 <div class="highlight"><pre><span></span><code>$ cd ../3.10unit-GNR_SZ
 $ cp ../1.Electrode_SZ/elec.TSHS input/
@@ -3043,17 +3043,17 @@ $ cp 2.6unit-GNR_SZ/tbtrans/scat.AVTRANs_Left-Right ./scat.TBT.AVTRANS_6unit
 $ cp 3.10unit-GNR_SZ/tbtrans/scat.AVTRANs_Left-Right ./scat.TBT.AVTRANS_10unit
 $ python show_trans.py scat.TBT.AVTRANS_6unit scat.TBT.AVTRANS_10unit
 </code></pre></div>
-<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/gnr-05.jpg" data-desc-position="bottom"><img src="../img/gnr-05.jpg" width="50%" height="50%"></a></center>
+<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../transiesta/img/gnr-05.jpg" data-desc-position="bottom"><img src="../../transiesta/img/gnr-05.jpg" width="50%" height="50%"></a></center>
 
 <p>그림에서 보면 channel의 unit 개수와 상관없이 trasmission은 동일한 것을 확인할 수 있다.</p>
 <h2 id="n-doped-graphene-nanoribbons">N-doped graphene nanoribbons</h2>
-<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/gnr-06.jpg" data-desc-position="bottom"><img src="../img/gnr-06.jpg" width="80%" heigh="" 1="80%"></a></center>
+<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../transiesta/img/gnr-06.jpg" data-desc-position="bottom"><img src="../../transiesta/img/gnr-06.jpg" width="80%" heigh="" 1="80%"></a></center>
 
 <p>위와 같이 pristine GNRs에 모델에서 채널 영역에 N-dopant를 추가하여 도핑시킨 모델에 대해서 계산을 진행해보자.</p>
 <ul>
 <li>2-unit channel</li>
 </ul>
-<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/gnr-07.jpg" data-desc-position="bottom"><img src="../img/gnr-07.jpg" width="60%" height="60%"></a></center>
+<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../transiesta/img/gnr-07.jpg" data-desc-position="bottom"><img src="../../transiesta/img/gnr-07.jpg" width="60%" height="60%"></a></center>
 
 <p>먼저 2-unit cell의 채널의 길이를 계산을 진행한다.</p>
 <p>※ 예제 파일의 <code>STRUCT.fdf</code>에는 19번 atom이 <code>H</code>로 되어 있으므로 이를 <code>C</code>로 수정한다.
@@ -3067,7 +3067,7 @@ $ qsub slm_siesta_run_tbt
 <ul>
 <li>6-unit channel</li>
 </ul>
-<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/gnr-08.jpg" data-desc-position="bottom"><img src="../img/gnr-08.jpg" width="70%" height="70%"></a></center>
+<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../transiesta/img/gnr-08.jpg" data-desc-position="bottom"><img src="../../transiesta/img/gnr-08.jpg" width="70%" height="70%"></a></center>
 
 <p>6-unit cell의 채널의 길이를 계산을 진행한다.
 </p><div class="highlight"><pre><span></span><code>$ cd 5.10unit-GNR+N_SZ
@@ -3080,7 +3080,7 @@ $ qsub slm_siesta_run_tbt
 <ul>
 <li>10-unit channel</li>
 </ul>
-<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/gnr-09.jpg" data-desc-position="bottom"><img src="../img/gnr-09.jpg" width="80%" height="80%"></a></center>
+<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../transiesta/img/gnr-09.jpg" data-desc-position="bottom"><img src="../../transiesta/img/gnr-09.jpg" width="80%" height="80%"></a></center>
 
 <p>10-unit cell의 채널의 길이를 계산을 진행한다.
 </p><div class="highlight"><pre><span></span><code>$ cd 6.14unit-GNR+N_SZ
@@ -3098,7 +3098,7 @@ $ cp 5.10unit-GNR+N_SZ/TBtransscat.TBT.AVTRANS_Left-Right ./scat.TBT.AVTRANS_Ndo
 $ cp 6.14unit-GNR+N_SZ/TBtrans/scat.TBT.AVTRANS_Left-Right ./scat.TBT.AVTRANS_Ndopant_14unit
 $ python show_trans.py scat.TBT.AVTRANS_Ndopant_6unit scat.TBT.AVTRANS_Ndopant_10unit scat.TBT.AVTRANS_Ndopant_14unit
 </code></pre></div><p></p>
-<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/gnr-10.jpg" data-desc-position="bottom"><img src="../img/gnr-10.jpg" width="50%" height="50%"></a></center>
+<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../transiesta/img/gnr-10.jpg" data-desc-position="bottom"><img src="../../transiesta/img/gnr-10.jpg" width="50%" height="50%"></a></center>
 
 
 
@@ -3119,7 +3119,7 @@ $ python show_trans.py scat.TBT.AVTRANS_Ndopant_6unit scat.TBT.AVTRANS_Ndopant_1
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 30, 2024 04:44:18 UTC">December 30, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 16, 2026 08:41:08 UTC">March 16, 2026</span>
   </span>
 
     

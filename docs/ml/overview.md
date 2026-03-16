@@ -8,7 +8,7 @@ This is a tutorial for Machine Learning (Basic).
 
 - Installation of Machine Learning Library
 
-![Screenshot](../img/overview-01.jpeg)
+![Screenshot](../../ml/img/overview-01.jpeg)
 
 -  Test Calculation
 

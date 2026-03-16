@@ -2990,7 +2990,7 @@
 <h2 id="1-wsl">1. WSL 설치하기</h2>
 <p>SIESTA 프로그램은 linux용 프로그램이므로 windows 컴퓨터에 직접 설치가 불가능하다. windows에서 linux를 사용할 수 있게 해주는 WSL을 설치하거나 linux가 깔려있는 컴퓨터가 필요하다. WSL의 설치에 관한 정보는 <a href="../../getting-started/wsl/">위키 페이지</a>에 자세히 설명되어있다. </p>
 <p>WSL을 설치한 후 microsoft store에서 ubuntu를 검색해서 우분투를 설치해준다. 이렇게 설치하면 가장 최신 버전인 22.04.1 LTS버전이 설치될 것이다. 원한다면 이전 버전의 우분투를 사용해도 좋다.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/siesta-local-01.png" data-desc-position="bottom"><img alt="build.png" src="../img/siesta-local-01.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../installation/img/siesta-local-01.png" data-desc-position="bottom"><img alt="build.png" src="../../installation/img/siesta-local-01.png"></a></p>
 <h2 id="2">2. 빌드 전 필요한 패키지 설치하기</h2>
 <p>프로그램을 빌드하려면 컴파일러가 필요하고, 오픈소스 컴파일러중 가장 유명한 컴파일러는 GNU compiler이다. apt-get을 이용해서 GCC를 설치해 줄 것이고, SIESTA가 fortran언어로 구성되어있어 추가적으로 gfortran도 설치해 줄 것이다. 다음 명령어를 이용해서 빌드에 필요한 가장 기초적인 패키지를 설치할 수 있다.</p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>build-essential<span class="w"> </span>gfortran
@@ -3038,12 +3038,12 @@
 <div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>/usr/bin/siesta
 </code></pre></div>
 <p>이제 터미널에서 siesta 명령어를 쳐보자. 결과가 아래 사진과 같이 나온다면 SIESTA를 성공적으로 빌드한 것이다.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/siesta-local-02.png" data-desc-position="bottom"><img alt="build2.png" src="../img/siesta-local-02.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../installation/img/siesta-local-02.png" data-desc-position="bottom"><img alt="build2.png" src="../../installation/img/siesta-local-02.png"></a></p>
 <p>추가적으로 TRANSIESTA 계산의 후처리 과정을 위한 <code>TBTRANS</code> 등 유틸을 빌드해야한다. 유틸은 Util 폴더에 있고, Util 폴더 안에 있는 build_all.sh 스크립트를 실행시키면 된다.</p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span>./build_all.sh
 </code></pre></div>
 <p>빌드가 완료되면 다음과 같이 빌드가 안된 폴더들이 나온다. 이때 TS와 관련된 폴더가 없다면 빌드가 잘 된 것이다.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/siesta-local-03.png" data-desc-position="bottom"><img alt="build4.png" src="../img/siesta-local-03.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../installation/img/siesta-local-03.png" data-desc-position="bottom"><img alt="build4.png" src="../../installation/img/siesta-local-03.png"></a></p>
 <p>마찬가지로 Tbtrans도 /usr/bin/폴더에 링크를 만들어 터미널에서 명령어로 사용하면 좋다. tbtrans는 Utils/TS/TBtrans/tbtrans에 위치해 있고, siesta에서 했던 것과 동일하게 링크를 만들어주면 된다.</p>
 <h3 id="3-2-anaconda">3-2. Anaconda를 통한 빌드</h3>
 <p>WSL 환경 내에 Anaconda가 설치가 되어있다면 SIESTA를 보다 쉽게 설치할 수 있다(<a href="../../getting-started/wsl/">Anaconda 설치</a>). Anaconda 명령어를 통해서 SIESTA를 빌드하는 명령어는 다음과 같다.</p>
@@ -3061,7 +3061,7 @@ $ conda install -c conda-forge "siesta=*=*openmpi" # openMPI 병렬
 <div class="highlight"><pre><span></span><code><span class="w">    </span>siesta<span class="w"> </span>RUN.fdf
 </code></pre></div>
 <p>위 명령어를 실행시키면 터미널에서 계산이 진행되며, 다음 그림과 같이 scf loop가 돌면서 제 1원리 계산이 수행되는 모습을 볼 수 있다.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/siesta-local-04.png" data-desc-position="bottom"><img alt="build3.png" src="../img/siesta-local-04.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../installation/img/siesta-local-04.png" data-desc-position="bottom"><img alt="build3.png" src="../../installation/img/siesta-local-04.png"></a></p>
 <p>다만, 이렇게 진행하면 serial 모드로 동작해서 mpi로 빌드했다 하더라도 코어를 하나밖에 쓰지 못한다. 따라서 병렬계산을 하기 위해 mpirun이라는 명령어를 사용해야한다. mpirun은 프로그램을 병렬로 실행시켜 주는 역할을 한다. 다음과 같은 명령어를 사용하면 코어 4개를 병렬적으로 위 serial 계산과 동일한 계산을 진행하게 된다.</p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span>mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">4</span><span class="w"> </span>siesta<span class="w"> </span>RUN.fdf
 </code></pre></div>
