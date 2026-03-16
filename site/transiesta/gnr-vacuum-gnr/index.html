@@ -2917,13 +2917,13 @@
 </blockquote>
 <p>그동안은 matrix Green's function을 기반으로 평형상태의 양자수송 특성을 계산하는 법에 대해서 다루었었다. 그러나 전압이 인가된 비평형 상황에서의 계산에서는 non-equilibrium Green's function (NEGF)의 도입이 필요하다. 이번 장에서는 graphene nanoribbons (GNRs)-vacuum-GNRs로 이루어진 비균질 모델에 대해서 junction을 정의하고 보다 정확한 계산을 위해서 수렴성 테스트를 진행하는 법을 소개하고 마지막으로 비평형 상태의 양자수송 특성을 계산하는 방법에 대해서 다룬다.</p>
 <h2 id="junction">Junction 모델링</h2>
-<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="/transiesta/img/gnr-vacuum-gnr-01.png" data-desc-position="bottom"><img src="/transiesta/img/gnr-vacuum-gnr-01.png" width="80%" height="80%"></a></center>
+<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/gnr-vacuum-gnr-01.png" data-desc-position="bottom"><img src="../img/gnr-vacuum-gnr-01.png" width="80%" height="80%"></a></center>
 
 <p>우리가 다룰 GNRs-vacuum-GNRs 구조는 양쪽으로 반-무한히 이어진 GRNs 전극 영역과 그 사이에 vacuum 영역으로 구분할 수 있다. 계산을 엄밀히 진행하기 위해서는 이전 <strong>Junction modeling</strong> 강의에서 언급했듯이 scattering 영역과 electrode 영역을 구분해야한다. 이를 위해서 다음과 같은 순서로 electrode/scattering 영역을 결정하여 junction 모델을 만들어보자.  </p>
 <p><strong>Step 1:</strong> Electrode의 principal cell 결정<br>
 <strong>Step 2:</strong> Buffer layer 테스트를 통한 scattering/electrode 영역 결정  </p>
 <h3 id="step-1-electrode-principal-cell">Step 1: Electrode의 principal cell 결정</h3>
-<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="/transiesta/img/gnr-vacuum-gnr-02.png" data-desc-position="bottom"><img src="/transiesta/img/gnr-vacuum-gnr-02.png" width="80%" height="80%"></a></center>
+<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/gnr-vacuum-gnr-02.png" data-desc-position="bottom"><img src="../img/gnr-vacuum-gnr-02.png" width="80%" height="80%"></a></center>
 
 <p>DFT-NEGF 방법에서 필요한 전극의 self-energy를 구하기 위해서는 위와 같이 수송 방향으로 주기성을 가지는 전극의 벌크 구조에 대한 계산이 필요하다. 위 예시에서는 1, 2와 3 개의 단위격자로 구성된 전극 구조가 나열되어있다. 여기서 중요한 것은 우리가 설정한 전극은 완벽한 principal cell의 조건을 만족해야한다는 점이다. 이를 확인하기 위해서 각 구조에 대해서 electrode 계산을 진행해본다.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="m">1</span>.modeling/1.principal_cell_test/1-unit
@@ -2947,23 +2947,23 @@ grep<span class="w"> </span><span class="s1">'superc: Internal auxiliary superce
 </code></pre></div>
 <p>위 결과를 확인해보면 1개의 단위격자로 계산하는 경우 <code>1 x 1 x 7</code>의 이미지 격자가 생성되는 것을 확인할 수 있다. 이는 단위격자가 수송 방향의 양옆으로 최소 3개의 단위격자만큼의 거리로 상호작용하고 있다는 뜻이다. 따라서 이는 self-energy를 계산하는 principal cell의 조건을 만족하지 않는다. 그러나 전극의 크기를 늘려서 3개의 단위격자를 사용할 때는 <code>1 x 1 x 3</code>의 이미지 격자가 생성되어 인접한 단위격자와만 상호작용 하고 있다는 것을 알 수 있다. 따라서 electrode 영역을 설정할 때 최소 3개의 단위격자를 이용한 전극 구조를 사용하는 것이 좋다.</p>
 <h3 id="step-2-buffer-layer-scatteringelectrode">Step 2: Buffer layer 테스트를 통한 scattering/electrode 영역 결정</h3>
-<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="/transiesta/img/gnr-vacuum-gnr-03.png" data-desc-position="bottom"><img src="/transiesta/img/gnr-vacuum-gnr-03.png" width="80%" height="80%"></a></center>
+<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/gnr-vacuum-gnr-03.png" data-desc-position="bottom"><img src="../img/gnr-vacuum-gnr-03.png" width="80%" height="80%"></a></center>
 
 <p>그 다음으로는 scattering 영역과 electrode 영역을 구분하기 위해 어느 정도의 buffer layer가 필요한지 테스트해본다. Electrode 영역의 길이는 이전 과정에서 구한 3개의 단위격자 크기로 고정하고 아래와 같이 다른 scattering 영역의 길이를 가진 여러 모델에 대해 평형상태의 transmission 값의 차이를 살펴볼 것이다. </p>
 <ul>
 <li>5개 단위격자 (한쪽 방향의 총 GNRs 격자 개수)</li>
 </ul>
-<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="/transiesta/img/gnr-vacuum-gnr-04.png" data-desc-position="bottom"><img src="/transiesta/img/gnr-vacuum-gnr-04.png" width="60%" height="60%"></a></center>
+<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/gnr-vacuum-gnr-04.png" data-desc-position="bottom"><img src="../img/gnr-vacuum-gnr-04.png" width="60%" height="60%"></a></center>
 
 <ul>
 <li>6개 단위격자</li>
 </ul>
-<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="/transiesta/img/gnr-vacuum-gnr-05.png" data-desc-position="bottom"><img src="/transiesta/img/gnr-vacuum-gnr-05.png" width="60%" height="60%"></a></center>
+<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/gnr-vacuum-gnr-05.png" data-desc-position="bottom"><img src="../img/gnr-vacuum-gnr-05.png" width="60%" height="60%"></a></center>
 
 <ul>
 <li>7개 단위격자</li>
 </ul>
-<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="/transiesta/img/gnr-vacuum-gnr-06.png" data-desc-position="bottom"><img src="/transiesta/img/gnr-vacuum-gnr-06.png" width="60%" height="60%"></a></center>
+<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/gnr-vacuum-gnr-06.png" data-desc-position="bottom"><img src="../img/gnr-vacuum-gnr-06.png" width="60%" height="60%"></a></center>
 
 <p>각 구조에 해당하는 디렉토리에 들어가서 이전 전극 계산에서 구한 <code>electrode.TSHS</code> 파일을 <code>input</code> 디렉토리에 복사한 후에 TranSIESTA 계산을 진행해준다. </p>
 <p><strong>TranSIESTA calculation (scattering region calculation)</strong>
@@ -2998,7 +2998,7 @@ sbatch<span class="w"> </span>slm_siesta_run_tbt
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>..
 python<span class="w"> </span>show_trans.py<span class="w">  </span><span class="m">5</span>-unit/OUT_tbt/scattering.TBT.AVTRANS_Left-Right<span class="w"> </span><span class="m">6</span>-unit/OUT_tbt/scattering.TBT.AVTRANS_Left-Right<span class="w"> </span><span class="m">7</span>-unit/OUT_tbt/scattering.TBT.AVTRANS_Left-Right
 </code></pre></div>
-<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="/transiesta/img/gnr-vacuum-gnr-07.png" data-desc-position="bottom"><img src="/transiesta/img/gnr-vacuum-gnr-07.png" width="70%" height="70%"></a></center>
+<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/gnr-vacuum-gnr-07.png" data-desc-position="bottom"><img src="../img/gnr-vacuum-gnr-07.png" width="70%" height="70%"></a></center>
 
 <p>위 결과를 통해 모든 구조의 transmission이 일치하는 것을 확인할 수 있다. 따라서 "5개 단위격자" 길이의 junction 모델을 이용하는 것이 계산량 측면에서 효율적이다.</p>
 <h2 id="_1">수렴성 테스트</h2>
@@ -3108,7 +3108,7 @@ sbatch<span class="w"> </span>slm_siesta_run_tbt
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>..
 python<span class="w"> </span>show_trans.py<span class="w">  </span><span class="m">5</span>-unit/OUT_tbt/scattering.TBT.AVTRANS_Left-Right<span class="w"> </span><span class="m">6</span>-unit/OUT_tbt/scattering.TBT.AVTRANS_Left-Right<span class="w"> </span><span class="m">7</span>-unit/OUT_tbt/scattering.TBT.AVTRANS_Left-Right
 </code></pre></div>
-<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="/transiesta/img/gnr-vacuum-gnr-08.png" data-desc-position="bottom"><img src="/transiesta/img/gnr-vacuum-gnr-08.png" width="70%" height="70%"></a></center>
+<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/gnr-vacuum-gnr-08.png" data-desc-position="bottom"><img src="../img/gnr-vacuum-gnr-08.png" width="70%" height="70%"></a></center>
 
 <p>위 결과를 확인해보면 <code>k=15</code>로 계산한 전극의 self-energy를 사용한 때부터 transmission이 일치하는 것을 확인할 수 있다. 이를 통해서 scattering/electrode 계산에서의 수렴된 k-point의 값을 얻을 수 있다.</p>
 <h2 id="_2">비평형 상태 계산</h2>
@@ -3132,7 +3132,7 @@ cp<span class="w"> </span>../../2.scattering/5-unit_k15/OUT/scattering.TSDE<span
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>..
 python<span class="w"> </span>show_vh.py<span class="w"> </span><span class="m">0</span>.5V/OUT/<span class="w"> </span>../../2.scattering/5-unit_k15/OUT
 </code></pre></div>
-<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="/transiesta/img/gnr-vacuum-gnr-09.png" data-desc-position="bottom"><img src="/transiesta/img/gnr-vacuum-gnr-09.png" width="50%" height="50%"></a></center>
+<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/gnr-vacuum-gnr-09.png" data-desc-position="bottom"><img src="../img/gnr-vacuum-gnr-09.png" width="50%" height="50%"></a></center>
 
 <p>위 계산 결과를 살펴보면 electrode 영역을 포함하여 모든 junction 영역에서 전압의 강하가 일어나고 있음을 확인할 수 있다. 이전 <strong>junction modeling</strong> 강의에서 언급했듯이 올바른 junction model에서는 screening으로 인한 전압 강하는 항상 scattering 영역에서 일어나야한다. 이는 고려하고 있는 junction 모델이 전압이 인가 시에 충분히 screening할 만큼 길지 않다는 뜻이다.</p>
 <p>위 결과를 통해 우리는 junction을 모델링할 때 평형 상태의 transmission의 결과만으로 적절한 buffer layer의 길이를 판별할 수 없다는 사실을 알 수 있다. 따라서 전압이 인가된 상황에서는 위 과정들, <strong>junction modeling</strong>, <strong>수렴성 테스트</strong>이 항상 비평형 상태의 계산을 동반하여 진행해야 한다는 점을 몀심하자. 제대로된 계산 결과를 얻기 위해 더 긴 buffer layer를 가지는 모델에 대해서 계산을 진행해야한다.</p>

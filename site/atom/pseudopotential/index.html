@@ -3335,7 +3335,7 @@
 <p>또한 gnuplot를 사용하면 생성된 슈도포텐셜을 시각화할 수 있다  </p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>gnuplot<span class="w"> </span>--perist<span class="w"> </span>pots.gplot
 </code></pre></div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="/atom/img/pseudopotential-03.jpg" data-desc-position="bottom"><img src="/atom/img/pseudopotential-03.jpg" width="500"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/pseudopotential-03.jpg" data-desc-position="bottom"><img src="../img/pseudopotential-03.jpg" width="500"></a></p>
 <p>추가로 자주 사용하는 시각화 스크립트는 다음과 같다.</p>
 <p>• pseudo : Norm-conserving 조건 확인용 그래프<br>
 • charge : all-electron vs pseudopotential 전자밀도 비교</p>
@@ -3361,7 +3361,7 @@ valence eigenvalue 비교는 OUT 파일에서 바로 확인할 수 있다.</p>
 <div class="highlight"><pre><span></span><code><span class="o">(</span>Pseudopotential<span class="w"> </span>generation<span class="w"> </span>결과<span class="w"> </span>폴더에서<span class="o">)</span>
 $<span class="w"> </span>grep<span class="w"> </span>‘<span class="p">&amp;</span>v’<span class="w"> </span>OUT
 </code></pre></div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="/atom/img/pseudopotential-04.jpg" data-desc-position="bottom"><img src="/atom/img/pseudopotential-04.jpg" width="500"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/pseudopotential-04.jpg" data-desc-position="bottom"><img src="../img/pseudopotential-04.jpg" width="500"></a></p>
 <p>출력 결과에는 all-electron 영역과 pseudopotential 영역의 valence 오비탈 정보가 나타나며,<br>
 &amp;v 라벨이 붙은 줄에서 원자가 오비탈의 고유값을 비교할 수 있다.</p>
 <p>확인 포인트:<br>
@@ -3375,7 +3375,7 @@ $<span class="w"> </span>grep<span class="w"> </span>‘<span class="p">&amp;</s
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>gnuplot
 gnuplot<span class="w"> </span>&gt;<span class="w"> </span>plot<span class="w"> </span><span class="s1">'AEWFNR1'</span><span class="w"> </span>w<span class="w"> </span>l,<span class="w"> </span><span class="s1">'PSWFNR1'</span><span class="w"> </span>w<span class="w"> </span>l
 </code></pre></div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="/atom/img/pseudopotential-05.jpg" data-desc-position="bottom"><img src="/atom/img/pseudopotential-05.jpg" width="500"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/pseudopotential-05.jpg" data-desc-position="bottom"><img src="../img/pseudopotential-05.jpg" width="500"></a></p>
 <p>확인 포인트:</p>
 <p>core 근처에서는 pseudo 파동함수가 더 부드럽다
 <span class="arithmatex">\(r_c\)</span> 이후에서는 all-electron과 pseudo 파동함수가 겹친다</p>
@@ -3391,7 +3391,7 @@ gnuplot<span class="w"> </span>&gt;plot<span class="w"> </span><span class="s1">
 gnuplot<span class="w"> </span>&gt;<span class="w"> </span><span class="nb">set</span><span class="w"> </span>xrange<span class="w"> </span><span class="o">[</span><span class="m">0</span>:20<span class="o">]</span>
 gnuplot<span class="w"> </span>&gt;replot<span class="w"> </span><span class="s1">'AECHARGE'</span><span class="w"> </span>u<span class="w"> </span><span class="m">1</span>:<span class="o">(</span><span class="nv">$2</span>+<span class="nv">$3</span>-<span class="nv">$4</span><span class="o">)</span><span class="w"> </span>w<span class="w"> </span>l<span class="w">    </span><span class="o">(</span><span class="nv">$4</span><span class="w"> </span>:<span class="w"> </span>핵<span class="w"> </span>전자밀도<span class="o">)</span>
 </code></pre></div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="/atom/img/pseudopotential-06.jpg" data-desc-position="bottom"><img src="/atom/img/pseudopotential-06.jpg" width="500" height="400"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/pseudopotential-06.jpg" data-desc-position="bottom"><img src="../img/pseudopotential-06.jpg" width="500" height="400"></a></p>
 <p>확인 포인트:<br>
 • pseudo valence 전하 밀도와 AE valence 전하 밀도가 <span class="arithmatex">\(r_c\)</span> 이후에서 잘 일치하는가?<br>
 • pseudo 쪽이 core 근처에서 더 부드러운가?</p>
@@ -3405,7 +3405,7 @@ gnuplot<span class="w"> </span>&gt;replot<span class="w"> </span><span class="s1
 gnuplot<span class="w"> </span>&gt;plot<span class="w"> </span><span class="s1">' AELOGD1'</span><span class="w"> </span>w<span class="w"> </span>l
 gnuplot<span class="w"> </span>&gt;replot<span class="w"> </span><span class="s1">' PSLOGD1'</span><span class="w"> </span>w<span class="w"> </span>l
 </code></pre></div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="/atom/img/pseudopotential-07.jpg" data-desc-position="bottom"><img src="/atom/img/pseudopotential-07.jpg" width="500" height="400"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/pseudopotential-07.jpg" data-desc-position="bottom"><img src="../img/pseudopotential-07.jpg" width="500" height="400"></a></p>
 <p>확인 포인트:</p>
 <p>• 로그도함수 곡선이 잘 겹치는가?
 • 특히 <span class="arithmatex">\(r_c\)</span> 이후에서 일치하는가?</p>
@@ -3435,11 +3435,11 @@ $<span class="w"> </span>sh<span class="w"> </span>../../Utils/pt.sh<span class=
 <p><strong>Total energy 비교</strong>:<br>
 </p><div class="highlight"><pre><span></span><code>$ grep ‘&amp;d’ OUT
 </code></pre></div>
-<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="/atom/img/pseudopotential-08.jpg" data-desc-position="bottom"><img src="/atom/img/pseudopotential-08.jpg" width="500" height="300"></a><p></p>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/pseudopotential-08.jpg" data-desc-position="bottom"><img src="../img/pseudopotential-08.jpg" width="500" height="300"></a><p></p>
 <p><strong>Eigenstate 비교</strong>:<br>
 </p><div class="highlight"><pre><span></span><code>$ grep ‘&amp;v’ OUT
 </code></pre></div>
-<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="/atom/img/pseudopotential-09.jpg" data-desc-position="bottom"><img src="/atom/img/pseudopotential-09.jpg" width="500" height="500"></a><p></p>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/pseudopotential-09.jpg" data-desc-position="bottom"><img src="../img/pseudopotential-09.jpg" width="500" height="500"></a><p></p>
 <p>위 과정을 통해 <code>Si</code> 원자의 all-electron과 pseudopotential에 대한 여러 전자배치의 <code>total energy</code>와 <code>eigenvalue</code>를 비교하여, transferability를 시험할 수 있다.</p>
 <h2 id="3">3. 심화과정</h2>
 <h3 id="3-1-fe">3-1. Fe 원자</h3>
@@ -3566,13 +3566,13 @@ work function의 차이만 비교해보기 위해서 다른 변수들은 전부 
 <div class="highlight"><pre><span></span><code><span class="nv">$ase</span><span class="w"> </span>gui
 </code></pre></div>
 <p>를 입력하면 xcryden 창이 뜨게 된다.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="/atom/img/pseudopotential-10.png" data-desc-position="bottom"><img src="/atom/img/pseudopotential-10.png" width="300"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/pseudopotential-10.png" data-desc-position="bottom"><img src="../img/pseudopotential-10.png" width="300"></a></p>
 <p><code>setup-Surface slab</code>을 선택하면 원하는 구조의 slab의 .xyz 파일을 생성할 수 있다.</p>
 <table>
 <thead>
 <tr>
-<th><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="/atom/img/pseudopotential-11.png" data-desc-position="bottom"><img src="/atom/img/pseudopotential-11.png" width="400"></a></th>
-<th><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="/atom/img/pseudopotential-12.png" data-desc-position="bottom"><img src="/atom/img/pseudopotential-12.png" width="300"></a></th>
+<th><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/pseudopotential-11.png" data-desc-position="bottom"><img src="../img/pseudopotential-11.png" width="400"></a></th>
+<th><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/pseudopotential-12.png" data-desc-position="bottom"><img src="../img/pseudopotential-12.png" width="300"></a></th>
 </tr>
 </thead>
 <tbody>
@@ -3583,9 +3583,9 @@ work function의 차이만 비교해보기 위해서 다른 변수들은 전부 
 </tbody>
 </table>
 <p>원하는 <code>Element, Lattice Structure and Constant, Vacuum length</code>를 입력한 뒤 Apply</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="/atom/img/pseudopotential-13.png" data-desc-position="bottom"><img src="/atom/img/pseudopotential-13.png" width="500"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/pseudopotential-13.png" data-desc-position="bottom"><img src="../img/pseudopotential-13.png" width="500"></a></p>
 <p><code>File-Save</code>를 눌러 원하는 directory에 <code>STRUCT.xyz</code> 로 저장하면 파일이 생성된다.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="/atom/img/pseudopotential-14.png" data-desc-position="bottom"><img src="/atom/img/pseudopotential-14.png" width="500"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/pseudopotential-14.png" data-desc-position="bottom"><img src="../img/pseudopotential-14.png" width="500"></a></p>
 <p>생성된 <code>STRUCT.xyz</code>에는 Cell 정보가 vector 좌표로 표현되어 있으므로,
 이를 </p>
 <p></p><div class="highlight"><pre><span></span><code>CELL<span class="w">   </span>&lt;size0&gt;<span class="w">   </span>&lt;size1&gt;<span class="w">   </span>&lt;size2&gt;<span class="w">   </span>&lt;angle0&gt;<span class="w">   </span>&lt;angle1&gt;<span class="w">   </span>&lt;angle2&gt;
@@ -3595,7 +3595,7 @@ work function의 차이만 비교해보기 위해서 다른 변수들은 전부 
 <p><strong>(3) Tutorial-SIESTA 계산-A. 기초과정-(2) Au 벌크/슬랩 구조 에서 사용하는 make_bulk.py 파일을 이용</strong>한다.
 <br> ase 방법에서와 동일한 parameter들을 파일 안에서 수정할 수 있으니 확인하기 바란다.</p>
 <p><br></p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="/atom/img/pseudopotential-15.png" data-desc-position="bottom"><img src="/atom/img/pseudopotential-15.png" width="600"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/pseudopotential-15.png" data-desc-position="bottom"><img src="../img/pseudopotential-15.png" width="600"></a></p>
 <p><br><br><br></p>
 <p>Slab 모델을 만든 후에는 basis를 설정해준다. work function을 구할 때는 100meV를 사용하면 reference와의 차이가 매우 크기 때문에 PAO.EnergyShift 항목을 50meV로 바꾸고 계산을 해야 한다.</p>
 <table>
@@ -3648,7 +3648,7 @@ work function의 차이만 비교해보기 위해서 다른 변수들은 전부 
 <p>Metal work function의 <a href="https://public.wsu.edu/~pchemlab/documents/Work-functionvalues.pdf">reference</a>에서 Au의 111면에서 work function은 5.31eV임을 알 수 있다. Relativistic의 경우 0.06 eV정도 차이가 나지만, non-relativistic의 경우 1.04 eV로 차이가 매우 심하게 나게 됨을 알 수 있다.</p>
 <p>Au Tutorial에서 했던 것처럼 macroave.in을 통해 Wave function을 시각화 해보면 다음과 같은 결과를 얻을 수 있다.
 Marcoave.in 은 /home/(username)/bin에 있다</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="/atom/img/pseudopotential-16.png" data-desc-position="bottom"><img src="/atom/img/pseudopotential-16.png" width="700"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/pseudopotential-16.png" data-desc-position="bottom"><img src="../img/pseudopotential-16.png" width="700"></a></p>
 <p>Vacuum level의 경우 그래프에서, 위치를 고정하지 않았던 쪽의 원자들에 가까운 쪽 level을 직접 그래프에서 측정하는 것이 더 정확하다.</p>
 <p><br>
 이와 같은 일련의 과정들을 통해 Pseudopotential을 테스트할 수 있다. 테스트 결과 Au같은 원자번호가 큰 원자의 경우 Relativistic 효과를 고려하는 경우 reference와 거의 일치하지만 Relativistic 효과를 고려하지않는 경우는 reference와 큰 차이가 난다. 따라서 Au의 경우 relativistic 효과를 고려해줘야 한다는 것을 알 수 있다.</p>

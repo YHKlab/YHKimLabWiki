@@ -14,7 +14,7 @@
 이번 장에서는 원자에 대해 밀도범함수론(density functional theory, DFT) 기반의 전(全)전자(all-electron) 계산을 수행하고, 얻어진 결과를 이용하여 전자 배치 변화에 따른 에너지 차이를 비교한다.
 이를 통해 이온화 효과, Hund’s rule, spin polarization이 실제 계산에서 어떻게 나타나는지를 확인한다. 
  
-[Tutorial](img/build/Tutorial.tar.gz){ .md-button }
+[Tutorial](../img/build/Tutorial.tar.gz){ .md-button }
 
 ```bash
 $tar -zxvf Tutorial.tar.gz
@@ -113,7 +113,7 @@ $ gnuplot -persist charge.gplot
 • `core charge`   
 • `valence charge`   
    
-<img src="/atom/img/all-electron-06.png" width="500" height="400"/>
+<img src="../img/all-electron-06.png" width="500" height="400"/>
 
 그래프를 통해 다음과 같은 특징을 확인할 수 있다.
 
@@ -153,11 +153,11 @@ $node = n-l-1$
 <table>
   <tr>
     <td align="center">
-      <img src="/atom/img/all-electron-01.png" alt="Radial wavefunction" /><br>
+      <img src="../img/all-electron-01.png" alt="Radial wavefunction" /><br>
       Radial wavefunction
     </td>
     <td align="center">
-      <img src="/atom/img/all-electron-02.png" alt="Applied Quantum Physics chapter 11.3.2" /><br>
+      <img src="../img/all-electron-02.png" alt="Applied Quantum Physics chapter 11.3.2" /><br>
       Applied Quantum Physics ch. 11.3.2
     </td>
   </tr>

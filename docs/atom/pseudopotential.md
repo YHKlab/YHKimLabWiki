@@ -106,7 +106,7 @@ $ sh ../../bin/pg.sh Si.pg.inp
 $ gnuplot --perist pots.gplot
 ```
 
-<img src="/atom/img/pseudopotential-03.jpg" width="500"/>
+<img src="../img/pseudopotential-03.jpg" width="500"/>
 
 
 추가로 자주 사용하는 시각화 스크립트는 다음과 같다.
@@ -148,7 +148,7 @@ valence eigenvalue 비교는 OUT 파일에서 바로 확인할 수 있다.
 $ grep ‘&v’ OUT
 ```
 
-<img src="/atom/img/pseudopotential-04.jpg" width="500" />
+<img src="../img/pseudopotential-04.jpg" width="500" />
 
 출력 결과에는 all-electron 영역과 pseudopotential 영역의 valence 오비탈 정보가 나타나며,  
 &v 라벨이 붙은 줄에서 원자가 오비탈의 고유값을 비교할 수 있다.
@@ -172,7 +172,7 @@ gnuplot > plot 'AEWFNR1' w l, 'PSWFNR1' w l
 ```
 
 
-<img src="/atom/img/pseudopotential-05.jpg" width="500"/>
+<img src="../img/pseudopotential-05.jpg" width="500"/>
 
 확인 포인트:
 
@@ -198,7 +198,7 @@ gnuplot > set xrange [0:20]
 gnuplot >replot 'AECHARGE' u 1:($2+$3-$4) w l    ($4 : 핵 전자밀도)
 ```
 
-<img src="/atom/img/pseudopotential-06.jpg" width="500" height="400"/>
+<img src="../img/pseudopotential-06.jpg" width="500" height="400"/>
 
 확인 포인트:  
 • pseudo valence 전하 밀도와 AE valence 전하 밀도가 $r_c$ 이후에서 잘 일치하는가?  
@@ -220,7 +220,7 @@ gnuplot >plot ' AELOGD1' w l
 gnuplot >replot ' PSLOGD1' w l
 ```
 
-<img src="/atom/img/pseudopotential-07.jpg" width="500" height="400"/>
+<img src="../img/pseudopotential-07.jpg" width="500" height="400"/>
 
 확인 포인트:
 
@@ -264,7 +264,7 @@ $ sh ../../Utils/pt.sh Si.test.inp Si.pg.vps
 ```
 $ grep ‘&d’ OUT
 ```
-<img src="/atom/img/pseudopotential-08.jpg" width="500" height="300"/>
+<img src="../img/pseudopotential-08.jpg" width="500" height="300"/>
  
 
 
@@ -272,7 +272,7 @@ $ grep ‘&d’ OUT
 ```
 $ grep ‘&v’ OUT
 ```
-<img src="/atom/img/pseudopotential-09.jpg" width="500" height="500"/>
+<img src="../img/pseudopotential-09.jpg" width="500" height="500"/>
 
  
 
@@ -432,24 +432,24 @@ $ase gui
 를 입력하면 xcryden 창이 뜨게 된다.
 
 
-<img src="/atom/img/pseudopotential-10.png" width="300"/>
+<img src="../img/pseudopotential-10.png" width="300"/>
 
 `setup-Surface slab`을 선택하면 원하는 구조의 slab의 .xyz 파일을 생성할 수 있다.
 
 
-| <img src="/atom/img/pseudopotential-11.png" width="400"/> | <img src="/atom/img/pseudopotential-12.png" width="300"/> |
+| <img src="../img/pseudopotential-11.png" width="400"/> | <img src="../img/pseudopotential-12.png" width="300"/> |
 | --------------------------------------------------- | ---------------------------------------------------- |
 
 원하는 `Element, Lattice Structure and Constant, Vacuum length`를 입력한 뒤 Apply
 
 
-<img src="/atom/img/pseudopotential-13.png" width="500"/>
+<img src="../img/pseudopotential-13.png" width="500"/>
 
 
 `File-Save`를 눌러 원하는 directory에 `STRUCT.xyz` 로 저장하면 파일이 생성된다.
 
 
-<img src="/atom/img/pseudopotential-14.png" width="500"/>
+<img src="../img/pseudopotential-14.png" width="500"/>
 
 생성된 `STRUCT.xyz`에는 Cell 정보가 vector 좌표로 표현되어 있으므로,
 이를 
@@ -469,7 +469,7 @@ CELL   <size0>   <size1>   <size2>   <angle0>   <angle1>   <angle2>
 <br>
 
 
-<img src="/atom/img/pseudopotential-15.png" width="600"/>
+<img src="../img/pseudopotential-15.png" width="600"/>
 
 <br><br><br>
 
@@ -495,7 +495,7 @@ Marcoave.in 은 /home/(username)/bin에 있다
 
 
 
-<img src="/atom/img/pseudopotential-16.png" width="700"/>
+<img src="../img/pseudopotential-16.png" width="700"/>
 
 Vacuum level의 경우 그래프에서, 위치를 고정하지 않았던 쪽의 원자들에 가까운 쪽 level을 직접 그래프에서 측정하는 것이 더 정확하다.
 
