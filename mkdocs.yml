@@ -62,7 +62,7 @@ nav:
                 - 1. SIESTA 계산:
                         - A. 기초 과정:
                                 - (1) SIESTA 개요 : siesta/basic.md
-                                - (2) CH4-H20-NH3 : siesta/ch4-h20-nh3.md
+                                - (2) 분자 계산 실습 (CH4, H2O, NH3) : siesta/ch4-h20-nh3.md
                                 - (3) 3D - Au bulk 구조 : siesta/gold-bulk.md
                                 - (4-1) 2D - Au slab 구조: siesta/gold-slab.md
                                 - (4-2) 2D - Graphene : siesta/graphene.md
