@@ -1,4 +1,4 @@
-0.1. HPC 클러스터 (YHKlab) 사용하기
+0.1. YHKimLab 고성능계산(high-performance computing, HPC) 클러스터 사용하기
 ---
 
 이 문서는 Linux HPC 서버를 처음 사용하는 학생을 위한 입문 가이드이다.
@@ -32,7 +32,7 @@ HPC 실습에 필요한 수준에서 다음을 익히는 데 초점을 둔다.
 
 정리하면, HPC는 단순히 "더 좋은 컴퓨터"가 아니라 연구용 계산과 공용 실습 환경을 안정적으로 제공하는 작업 기반이다.
 
-### 1.1.3. ASDSLab (YHKlab) 클러스터 구성 (26.03.07)
+### 1.1.3. YHKimLab 클러스터 구성 (26.03.07)
 ![YHKlab 클러스터 구성](../../getting-started/img/lab-cluster-01.jpeg)
 
 ## 1.2. 왜 Linux를 배우는가: Linux 소개
