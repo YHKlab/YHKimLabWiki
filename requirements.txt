@@ -9,3 +9,25 @@ mkdocs-material
 
 # Extensions configured under `markdown_extensions`
 pymdown-extensions
+
+# Extra Material features used by some icon/emoji settings
+mkdocs-material-extensions
+
+# Plugin configured under `plugins` for last-updated / revision date display
+mkdocs-git-revision-date-localized-plugin
+
+# Plugin configured under `plugins` for image lightbox support
+mkdocs-glightbox
+
+# Plugin configured under `plugins` to render Jupyter notebooks
+mkdocs-jupyter
+
+# Plugin configured under `plugins` for Mermaid diagram rendering
+mkdocs-mermaid2-plugin
+
+# Extensions configured under `markdown_extensions`
+pymdown-extensions
+
+# Utility command that inspects `mkdocs.yml` and prints the Python packages required by configured themes/plugins        
+mkdocs-get-deps
+                            
