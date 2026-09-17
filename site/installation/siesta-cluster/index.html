@@ -3040,9 +3040,8 @@ LIBS = $(SCALAPACK_LIBS) $(BLACS_LIBS) $(LAPACK_LIBS) $(BLAS_LIBS)
 </code></pre></div>
 <p>NetCDF4의 경우 SIESTA 소스 파일 내에 직접 설치를 할 수 있는 bash 스크립트가 제공되어있다. 이에 대한 스크립트는 <code>/siesta-4.1.5/Docs</code> 경로의 <code>install_netcdf4.bash</code> 파일이다. 이를 이용하기 위해서는 다음과 같은 정보를 <code>install_netcdf4.bash</code>에 추가해준다.</p>
 <ul>
-<li>
-<p>install_flook.bash
-</p><div class="highlight"><pre><span></span><code># If you want to change your compiler version you should define the
+<li>install_netcdf4.bash
+<div class="highlight"><pre><span></span><code># If you want to change your compiler version you should define the
 # global variables that are used for the configure scripts to grab the
 # compiler, they should be CC and FC. Also if you want to compile with
 # different flags you should export those variables; CFLAGS, FFLAGS.
@@ -3054,22 +3053,18 @@ export F90=mpiifort
 export FFLAGS='-fPIC -O3 -xSSE4.2 -ip'
 export CFLAGS='-fPIC -O3 -xSSE4.2 -ip'
 </code></pre></div>
-위에서 새로 추가된 것은 <code>CC</code>와 <code>FC</code>에 대한 정보이다. <strong>본인의 컴파일러</strong>에 맞게 이 부분을 수정하면 된다. 또한 기본 <code>install_netcdf4.bash</code> 기술된 각 라이브러리의 버전에 대한 정보 및 다운로드 경로는 실시간으로 수정이 되는 경우가 있어 꼭 확인이 필요하다. (라이브러리 이름 + compile 의 키워드로 검색)<p></p>
-</li>
-<li>
-<p>수정이 필요한 내용 (2023.01.18)
-</p><div class="highlight"><pre><span></span><code>z_v=1.2.13
-h_v=1.14.0
+위에서 새로 추가된 것은 <code>CC</code>와 <code>FC</code>에 대한 정보이다. <strong>본인의 컴파일러</strong>에 맞게 이 부분을 수정하면 된다. 또한 기본 <code>install_netcdf4.bash</code> 기술된 각 라이브러리의 버전에 대한 정보 및 다운로드 경로는 실시간으로 수정이 되는 경우가 있어 꼭 확인이 필요하다. (라이브러리 이름 + compile 의 키워드로 검색)</li>
+</ul>
+<div class="highlight"><pre><span></span><code>z_v=1.3.2
+h_v=1.14.6
 nc_v=4.9.0
-nf_v=4.5.4
+nf_v=4.6.4
 
 download_file zlib-${z_v}.tar.gz https://zlib.net/zlib-${z_v}.tar.gz
-download_file hdf5-${h_v}.tar.bz2 https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-${h_v%.*}/hdf5-${h_v}/src/hdf5-${h_v}.tar.bz2
-download_file netcdf-c-${nc_v}.tar.gz https://downloads.unidata.ucar.edu/netcdf-c/${nc_v}/netcdf-c-${nc_v}.tar.gz
-download_file netcdf-fortran-${nf_v}.tar.gz https://downloads.unidata.ucar.edu/netcdf-fortran/${nf_v}/netcdf-fortran-${nf_v}.tar.gz
-</code></pre></div><p></p>
-</li>
-</ul>
+download_file hdf5-${h_v}.tar.gz https://support.hdfgroup.org/releases/hdf5/v1_14/v1_14_6/downloads/hdf5-${h_v}.tar.gz
+download_file netcdf-c-${nc_v}.tar.gz https://github.com/Unidata/netcdf-c/archive/refs/tags/${nc_v}.tar.gz
+download_file netcdf-fortran-${nf_v}.tar.gz  https://github.com/Unidata/netcdf-fortran/archive/refs/tags/${nf_v}.tar.gz
+</code></pre></div>
 <p>위 정보를 수정했다면 다음과 같은 명령어로 NetCDF4와 이에 필요한 라이브러리들을 설치할 수 있다.</p>
 <p></p><div class="highlight"><pre><span></span><code>bash<span class="w"> </span>install_netcdf4.bash
 </code></pre></div>
