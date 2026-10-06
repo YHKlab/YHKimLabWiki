@@ -21,7 +21,7 @@ Basic TranSIESTA calculation
 ```bash
 $tar -xzf Tutorial_transiesta.tar.gz
 ```
-tar에 대해서 커맨드에 대해서 외우기 어려울 수 있는데, 압축을 할때는 *tar -czf (압축파일에 붙일 이름) (압축디렉토리)* 로하면되고 압축을 풀때는 *tar -xzf (압축풀려는파일) (압축해제할 위치 디렉토리)*. -czf , -xzf에 대해서 구분도 이해하면 좋은데 압축을 create한다고 해서 c이고 x는 압축을 추출, extraction한다고 해서 x이다. 
+tar에 대해서 커맨드에 대해서 외우기 어려울 수 있는데, 압축을 할때는 *tar -czf (압축파일에 붙일 이름) (압축디렉토리)* 로 하면 되고 압축을 풀 때는 *tar -xzf (압축풀려는파일) (압축해제할 위치 디렉토리)*. -czf , -xzf에 대해서 구분도 이해하면 좋은데, 압축을 create한다고 해서 c이고 x는 압축을 추출, extraction한다고 해서 x이다. 
 
 ### Step 1. Electrode calculation
 
