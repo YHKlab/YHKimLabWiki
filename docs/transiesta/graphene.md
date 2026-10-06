@@ -2,8 +2,9 @@ Graphene (2D)
 =========================
 ## Contents
 1. Graphene의 양자수송 특성 계산
+하단의 필요 코드를 다운받아라.
 
-> Input: [Link](https://1drv.ms/u/s!ArHICXVqPANVux6jWW0x2QlTFre0?e=88oKbL)
+> Input: [Graphene.tar.gz](../../transiesta/img/build/Graphene.tar.gz)
 
 ## Graphene의 양자수송 특성 계산
 
@@ -28,11 +29,12 @@ $ vi KPT.fdf
 ```
 electrode 계산시, `SolutionMethod`는 `diagon`으로 설정되어야 하며, `RUN.fdf`에 `TSHS`파일을 저장하기 위한 옵션을 추가하였다.
 ```
-$ vi RUN.fdf
+$vi RUN.fdf
 SolutionMethod      diagon
 TS.HS.Save .true.
 
-$ qsub slm_siesta_run
+$cd Graphene/1.Electrode_k060
+$qsub slm_sbatch_transiesta
 ``` 
 
 계산이 완료되면 output 폴더에서 `elec.TSHS` 파일을 확인할 수 있다.
@@ -40,7 +42,7 @@ $ qsub slm_siesta_run
 ### Step 2: Scattering region calculation
 앞서 구한 `elec.TSHS` 파일을 NEGF 계산할 input 폴더로 복사한 후 transiesta를 통해 `.TSHS` 파일을 구한다.
 ```
-$ cp ../1.Electrode_k060/OUT/elec.TSHS input/.
+$ cp OUT/elec.TSHS ../2.Graphene_k060/input/.
 ```
 수송 방향인 z축 방향으로의 k-point는 1이어야 한다. 나머지 k-point는 반드시 electrode의 `.TSHS` 파일을 계산할 때 사용한 k-point와 일치해야한다.
 
@@ -79,13 +81,14 @@ TS.Voltage    0.00000 eV
 ```
 TranSIESTA를 실행하여 scattering 영역에 대한 `.TSHS` 파일을 얻는다. 
 ```
-$ qsub slm_siesta_run
+$ cd Graphene/1.Electrode_k060/
+$ qsub slm_sbatch_transiesta
 ```
 ### Step 3: Post-processing
 
 TBTrans를 이용하여 transmission function을 구한다.<br/>앞서 구한 `scat.TSHS` 파일이 input으로 필요하며, 그 외 모든 input은 Step 2와 동일하다. 이때 실행 파일은 transiesta가 아닌 tbtrans이다.
 ```
-$ cp ../2.Graphene_k060/OUT/scat.TSHS input/.
+$ cp OUT/scat.TSHS input/.
 ```
 Tbtrans 계산시, TS.fdf에서 관련 옵션을 조절한다.<br/> DOS과 transmission 분석을 위한 에너지 범위를 지정할 수 있다. 
 ```
@@ -99,11 +102,12 @@ $ vi TS.fdf
 ```
 
 ```
-$ qsub slm_siesta_run_tbt
+$ qsub slm_sbatch_tbtrans
 ```
 파이썬 코드를 이용하여 transmission function을 시각화해본다.
 ```
-$ python show_trans_rev.py scat.TBT.AVTRANS_Left-Right
+$ cd Graphene/2.Graphene_k060/OUT_tbtrans/
+$ python ../../show_trans.py scat.TBT.TRANS_Left-Right
 ```
 
 예제 파일에 포함되어 있는 show_trans.py는 k vector가 단위 벡터인 경우에만 작동하는 코드이므로,
