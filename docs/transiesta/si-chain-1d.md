@@ -14,9 +14,13 @@ Basic TranSIESTA calculation
 
 <center><img src="../../transiesta/img/si-chain-1d-02.jpg" width="90%" height="90%"></center>
 
-먼저 위와 같이 양 전극에 2개의 Si 원자와 scattering 영역에 7개의 Si 원자로 이루어진 균일한 Si chain 모델에 대해서 **평형상태**의 양자수송 특성 계산을 진행하겠다. 하단의 **튜토리얼**파일을 다운받아라.
+먼저 위와 같이 양 전극에 2개의 Si 원자와 scattering 영역에 7개의 Si 원자로 이루어진 균일한 Si chain 모델에 대해서 **평형상태**의 양자수송 특성 계산을 진행하겠다. 하단의 **튜토리얼**파일을 다운받아라. 
 
 > Input: [TransiestaTutorial.tar.gz](../../transiesta/img/build/Tutorial_transiesta.tar.gz)
+
+
+현 튜토리얼 방향에 대해서, 이 파일을 다운 받는걸 적극 **권장**한다.
+> Input: [Si1D_chain.tar.gz](../../transiesta/img/build/Si1D_chain.tar.gz)
 
 ```bash
 $tar -xzf Tutorial_transiesta.tar.gz
@@ -31,27 +35,38 @@ tar에 대해서 커맨드에 대해서 외우기 어려울 수 있는데, 압�
 양자수송 특성 계산의 가장 첫번째 단계는 우선 전극에 대한 전자구조 계산을 통해 전극 구조의 `.TSHS` 파일을 얻는 과정이 필요하다. 이는 Hamiltonian 및 overlap 행렬의 정보를 담고 있으며, 추후 scattering 영역의 계산에서 필요한 surface Green function을 만들 때 사용된다.
 
 ```
-$ cd 1.electrode/input
+$ cd /Si1D_chain/1.electrode/input
 ```
 
 - RUN.fdf
 ```
 #------------------------------------------------------
 # FDF for 1d Si chain
-#------------------------------------------------------ 
-SystemName       1D Si GGA system
-SystemLabel        Si1D_Elec
+# 
+SystemName       1D Si GGA       # Descriptive name of the system
+SystemLabel      Si1D_Elec       # Short name for naming files
+
 %include STRUCT.fdf
 %include BASIS.fdf
 %include KPT.fdf
 
-SolutionMethod        diagon
-XC.functional         GGA
-XC.authors            PBE
-MeshCutoff            90.0 Ry
-SaveHS                T
-DM.UseSaveDM          true     # to use continuation files
-TS.HS.Save 	          true
+SolutionMethod  diagon
+XC.functional       GGA
+XC.authors          PBE
+MeshCutoff          90.0 Ry
+SaveHS              T
+DM.UseSaveDM        true     # to use continuation files
+TS.HS.Save          true
+
+# Output options
+WriteCoorStep
+WriteMullikenPop       1    
+WriteBands          true
+BandLinesScale      ReciprocalLatticeVectors
+%block BandLines
+1   0.     0.     -0.5      \Gamma
+50  0.     0.      0.5      \pi/a
+%endblock BandLines
 ```
 
 Electrode 계산 단계에서는 DFT 계산을 진행하므로 `SolutionMethod`이 `diagon`으로 되어있는 것을 꼭 확인하자.
@@ -100,7 +115,7 @@ $ transiesta RUN.fdf
 참고로 electrode 계산은 DFT 계산임에도 SIESTA 실행 파일이 아닌 TranSIESTA 실행 파일로 진행하는 이유는 두 실행파일은 원칙적으로 동일하나 input의 기본설정이 다르기 때문이다. TranSIESTA는 기본적으로 `.TSHS` 파일을 출력값으로 계산하기 때문에 양자수송 특성 계산에서는 TranSIESTA 실행파일을 사용하는 것이 편리하다. 만약 SIESTA 실행파일을 이용하는 경우라면 다음과 같은 명령어를 이용하면 된다.
 
 ```
-% siesta --electrode RUN.fdf
+$ siesta --electrode RUN.fdf
 ```
 
 계산에 끝나면 OUT 폴더에 `Si1D_Elec.TSHS`가 생성된 것을 확인할 수 있을 것이다. 이는 두번째 단계에서 전극의 self-energy를 만드는데 필요한 헤밀토니안 정보를 담고 있다.
@@ -111,10 +126,10 @@ $ transiesta RUN.fdf
 <center><img src="../../transiesta/img/si-chain-1d-04.jpg" width="80%" height="80%"></center>
 <center><img src="../../transiesta/img/si-chain-1d-02.jpg" width="90%" height="80%"></center>
 
-Electrode 계산을 끝내고 scatter region에 대한 계산을 하기 위해 `2.scattering/1.perfect_chain` 폴더에 들어간다. 이 다음 이전 `1.electrode` 폴더에 생성된 `Si1D_Elec.TSHS` 파일을 `2.perfect_chain`의 input폴더에 넣어준다. 
+Electrode 계산을 끝내고 scatter region에 대한 계산을 하기 위해 `2.perfect_chain/scattering` 폴더에 들어간다. 이 다음 이전 `1.electrode` 폴더에 생성된 `Si1D_Elec.TSHS` 파일을 `scattering`의 input폴더에 넣어준다. 
 
 ```
-$ cd ../2.perfect_chain/scattering
+$ cd ../../2.perfect_chain/scattering
 $ cp ../../1.electrode/input/Si1D_Elec.TSHS input/
 ```
 
@@ -188,22 +203,24 @@ $ tbtrans RUN.fdf
 
 ### Results: Transmission, Band, DOS, 
 
-TBtrans 계산이 끝나면 `.AVTRANS_Left-Right` 파일을 얻을 수 있다. 이는 에너지 스펙트럼에 대한 transmission 값에 대한 정보를 담고 있다. Transmission을 plot해보자.
+TBtrans 계산이 끝나면 k point가 1개일 경우의 `.TRANS_Left-Right` 파일을 얻을 수 있다. 이는 에너지 스펙트럼에 대한 transmission 값에 대한 정보를 담고 있다. 하지만, kpoint가 1이상인 경우에는 K-point averaged transmission인 `.AVTRANS_Left-Right`가 출력되니 알아두면 좋다. 이제 Transmission을 plot해보자.
 
 ```
-$ python ../show_trans.py Si1D_perf.AVTRANS_Left-Right
+$ python ../show_trans.py Si1D_perf.TRANS_Left-Right
 ```
 <center><img src="../../transiesta/img/si-chain-1d-06.jpg" width="40%" height="40%"></center>
 
-아래와 같이 전극의 density of states (DOS)나 band와 같은 전자구조와 transmission을 비교할 수 있다.
+아래와 같이 전극의 density of states (DOS)나 band와 같은 전자구조와 transmission을 비교할 수 있다. .XV확장자를 XSF로 변환해주는 키워드다. 시스템 라벨이 뜬다면, ~.XV의 ~을 정확히 입력하자. 만약 ~.XV를 전체 입력하게 된다면, old formatted로 에러가 끈다.
 
 ```
-$ cd ../../1.Electrodes
+$ cd ../../../1.electrodes/input
 $ xv2xsf
+
+Specify SystemLabel (or 'siesta' if none): Si1D_Elec <<로 입력하자. 
 
 ...
 
-$ cp ../2.PerfectChain/TBtrans/Si1D_Perf.AVTRANS .
+$ cp ../../2.perfect_chain/scattering/input/Si1D_Perf.TBT.TRANS_Left-Right .
 $python band+dos+T.py
 ```
 <center><img src="../../transiesta/img/si-chain-1d-07.jpg" width="60%" height="60%"></center>
@@ -221,7 +238,7 @@ $python band+dos+T.py
 
 `1.electrode/input` 폴더  `Si1D_Elec.TSHS`를 INPUT에 복사한 후 TranSIESTA 계산을 한다.
 ```
-$ cd ../3.imperfect_chain/scattering
+$ cd ../../3.imperfect_chain/scattering
 $ cp ../../1.electrode/input/Si1D_Elec.TSHS input/.
 ```
 
@@ -239,10 +256,7 @@ $ tbtrans RUN.fdf
 Silicon chain (1D)의 perfect구조와 imperfect구조의 0V 상황에서의 transmission을 비교해보자.
 
 ```
-$ cd ../../../
-$ cp 2.perfect_chain/scattering/input/Si1D_Perf.TBT.AVTRANS_Left-Right .
-$ cp 3.imperfect_chain/Scattering/input/Si1D_Imperf.TBT.AVTRANS_Left-Right .
-$ python show_trans.py Si1D_Perf.TBT.AVTRANS Si1D_Perf.TBT.AVTRANS
+$python ../../../show_trans.py ../../../2.perfect_chain/scattering/input/Si1D_Perf.TBT.TRANS_Left-Right Si1D_Imperf.TBT.TRANS_Left-Right
 ```
 
 <center><img src="../../transiesta/img/si-chain-1d-09.jpg" width="60%" height="60%"></center>
@@ -254,9 +268,9 @@ $ python show_trans.py Si1D_Perf.TBT.AVTRANS Si1D_Perf.TBT.AVTRANS
 다.
 
 ```
-$ cd 4.imperfect_chain_1V/
-$ cp ../../1.electrode/input/Si1D_Elec.TSHS .
-$ cp ../../3.imperfect_chain/input/Si1D_Perf.TSDE .
+$ cd ../../../4.imperfect_chain_1V/scattering/input
+$ cp ../../../1.electrode/input/Si1D_Elec.TSHS .
+$ cp ../../../3.imperfect_chain/scattering/input/Si1D_Imperf.TSDE .
 ```
 
 비평형 상태의 NEGF 계산은 평형 상태의 계산과 거의 동일하다. 1V의 전압을 인가하기 위해서는 다음과 같은 옵션을 바꾸어 주면 된다.
@@ -269,7 +283,8 @@ TS.Voltage    1.00000 eV
 이제 TranSIESTA 계산을 진행해준다.
 
 ```
-$ transiesta RUN.fdf
+$transiesta RUN.fdf
+$tbtrans RUN.fdf
 ```
 
 ### Result: Imperfect Si chain 0V vs 1V
@@ -277,9 +292,7 @@ $ transiesta RUN.fdf
 Silicon chain (1D) 0V, 1V의 imperfect구조의 transmission을 비교하자.
 
 ```
-$ cd ../../../
-$ cp 4.imperfect_chain_1V/scattering/input/Si1D_Perf.AVTRANS_Left-Right ./Si1D_Imperf_1V.TBT.AVTRANS
-$ python show_trans.py Si1D_Imperf.TBT.AVTRANS_Left-Right Si1D_Imperf_1V.TBT.AVTRANS
+python ../../../show_trans.py ../../../3.imperfect_chain/scattering/input/Si1D_Imperf.TBT.TRANS_Left-Right Si1D_Imperf.TBT.TRANS_Left-Right 
 ```
 
 <center><img src="../../transiesta/img/si-chain-1d-10.jpg" width="80%" height="80%"></center>
