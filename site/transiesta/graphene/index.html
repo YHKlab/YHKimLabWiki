@@ -2937,7 +2937,7 @@ TS.HS.Save .true.
 $cd Graphene/1.Electrode_k060
 $qsub slm_sbatch_transiesta
 </code></pre></div><p></p>
-<p>계산이 완료되면 output 폴더에서 <code>elec.TSHS</code> 파일을 확인할 수 있다.</p>
+<p>계산이 완료되면 OUT/ 폴더에서 <code>elec.TSHS</code> 파일을 확인할 수 있다.</p>
 <h3 id="step-2-scattering-region-calculation">Step 2: Scattering region calculation</h3>
 <p>앞서 구한 <code>elec.TSHS</code> 파일을 NEGF 계산할 input 폴더로 복사한 후 transiesta를 통해 <code>.TSHS</code> 파일을 구한다.
 </p><div class="highlight"><pre><span></span><code>$ cp OUT/elec.TSHS ../2.Graphene_k060/input/.
@@ -3041,13 +3041,17 @@ kgrid에 1이 아닌 값을 준 경우 아래와 같이 함수 부분을 수정�
 
 <h2 id="exercise-1-k-point-effect">Exercise 1: K-point effect</h2>
 <p>Post-processing 단계에서 TBtrans 계산을 할때는 electrode나 scattering region에 대한 계산을 할 때 사용한 k-point와 다른 k-point 값을 사용해도 된다. 일반적으로 transmission 그래프을 "매끄럽게" 하기 위해 <strong>post-processing</strong> 단계는  k-point를 scattering 계산보다 더욱 크게 주는 것이 일반 적이다.<br>
-참고로 tbtrans 계산의 input인 <code>scat.TSHS</code> 파일은 k-point를 1x60x1일때 얻은 결과값이다.
+참고로 tbtrans 계산의 input인 <code>scat.TSHS</code> 파일은 k-point를 1x60x1일때 얻은 결과값이다.<br>
+1.Electrode_k060에서 나온 elec.TSHS를 가져온다. (질문: 왜 k240으로 다시 뽑지 않고 기존거 그대로 사용하는가?)
 </p><div class="highlight"><pre><span></span><code>$ vi KPT.fdf
 %block kgrid_Monkhorst_Pack
  1    0    0    0.0
  0   240    0    0.0
  0    0    1    0.0
 %endblock kgrid_Monkhorst_Pack
+</code></pre></div>
+2.Graphene_k240의 위치에서 실행.
+<div class="highlight"><pre><span></span><code>$python ../show_trans.py ../2.Graphene_k060/OUT_tbtrans/scat.TBT.TRANS_Left-Right OUT_tbtrans/scat.TBT.TRANS_Left-Right 
 </code></pre></div><p></p>
 <center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../transiesta/img/graphene-04.png" data-desc-position="bottom"><img src="../../transiesta/img/graphene-04.png" width="60%" height="60%"></a></center>
 
@@ -3093,6 +3097,10 @@ $ vi 4.Graphene_wider_k30/input/KPT.fdf
  0   30    0    0.0
  0    0    1    0.0
 %endblock kgrid_Monkhorst_Pack
+</code></pre></div>
+3.Electrode_wider_k30에서 전극 계산을 마치고, 4.Graphene_wider_k30으로 들어가 scat계산 이후 Post-processing을 하면 된다.
+<div class="highlight"><pre><span></span><code>python ../show_trans.py ../2.Graphene_k060/OUT_tbtrans/scat.TBT.TRANS_Left
+-Right OUT_tbtrans/scat.TBT.TRANS_Left-Right
 </code></pre></div><p></p>
 <center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../transiesta/img/graphene-06.png" data-desc-position="bottom"><img src="../../transiesta/img/graphene-06.png" width="60%" height="60%"></a></center>
 

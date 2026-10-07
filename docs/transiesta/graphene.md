@@ -37,7 +37,7 @@ $cd Graphene/1.Electrode_k060
 $qsub slm_sbatch_transiesta
 ``` 
 
-계산이 완료되면 output 폴더에서 `elec.TSHS` 파일을 확인할 수 있다.
+계산이 완료되면 OUT/ 폴더에서 `elec.TSHS` 파일을 확인할 수 있다.
 
 ### Step 2: Scattering region calculation
 앞서 구한 `elec.TSHS` 파일을 NEGF 계산할 input 폴더로 복사한 후 transiesta를 통해 `.TSHS` 파일을 구한다.
@@ -163,7 +163,8 @@ def get_xy_array(filename):
 
 
 Post-processing 단계에서 TBtrans 계산을 할때는 electrode나 scattering region에 대한 계산을 할 때 사용한 k-point와 다른 k-point 값을 사용해도 된다. 일반적으로 transmission 그래프을 "매끄럽게" 하기 위해 **post-processing** 단계는  k-point를 scattering 계산보다 더욱 크게 주는 것이 일반 적이다.<br/>
-참고로 tbtrans 계산의 input인 `scat.TSHS` 파일은 k-point를 1x60x1일때 얻은 결과값이다.
+참고로 tbtrans 계산의 input인 `scat.TSHS` 파일은 k-point를 1x60x1일때 얻은 결과값이다.<br/>
+1.Electrode_k060에서 나온 elec.TSHS를 가져온다. (질문: 왜 k240으로 다시 뽑지 않고 기존거 그대로 사용하는가?)
 ```
 $ vi KPT.fdf
 %block kgrid_Monkhorst_Pack
@@ -171,6 +172,10 @@ $ vi KPT.fdf
  0   240    0    0.0
  0    0    1    0.0
 %endblock kgrid_Monkhorst_Pack
+```
+2.Graphene_k240의 위치에서 실행.
+```
+$python ../show_trans.py ../2.Graphene_k060/OUT_tbtrans/scat.TBT.TRANS_Left-Right OUT_tbtrans/scat.TBT.TRANS_Left-Right 
 ```
 
 <center><img src="../../transiesta/img/graphene-04.png" width="60%" height="60%"></center>
@@ -221,6 +226,11 @@ $ vi 4.Graphene_wider_k30/input/KPT.fdf
  0   30    0    0.0
  0    0    1    0.0
 %endblock kgrid_Monkhorst_Pack
+```
+3.Electrode_wider_k30에서 전극 계산을 마치고, 4.Graphene_wider_k30으로 들어가 scat계산 이후 Post-processing을 하면 된다.
+```
+python ../show_trans.py ../2.Graphene_k060/OUT_tbtrans/scat.TBT.TRANS_Left
+-Right OUT_tbtrans/scat.TBT.TRANS_Left-Right
 ```
 <center><img src="../../transiesta/img/graphene-06.png" width="60%" height="60%"></center>
 
