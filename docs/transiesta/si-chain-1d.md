@@ -223,7 +223,7 @@ Specify SystemLabel (or 'siesta' if none): Si1D_Elec <<로 입력하자.
 $ cp ../../2.perfect_chain/scattering/input/Si1D_Perf.TBT.TRANS_Left-Right .
 $python band+dos+T.py
 ```
-<center><img src="../../transiesta/img/si-chain-1d-07.jpg" width="60%" height="60%"></center>
+<center><img src="../../transiesta/img/si-chain-1d-07.png" width="60%" height="60%"></center>
 
 
 ## Imperfect Si chain
@@ -259,7 +259,7 @@ Silicon chain (1D)의 perfect구조와 imperfect구조의 0V 상황에서의 tra
 $python ../../../show_trans.py ../../../2.perfect_chain/scattering/input/Si1D_Perf.TBT.TRANS_Left-Right Si1D_Imperf.TBT.TRANS_Left-Right
 ```
 
-<center><img src="../../transiesta/img/si-chain-1d-09.jpg" width="60%" height="60%"></center>
+<center><img src="../../transiesta/img/si-chain-1d-09.png" width="60%" height="60%"></center>
 
 
 ### Non-equilibrium calculation (1V)
