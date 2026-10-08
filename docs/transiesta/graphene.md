@@ -162,7 +162,7 @@ def get_xy_array(filename):
 ## Exercise 1: K-point effect
 
 
-Post-processing 단계에서 TBtrans 계산을 할때는 electrode나 scattering region에 대한 계산을 할 때 사용한 k-point와 다른 k-point 값을 사용해도 된다. 일반적으로 transmission 그래프을 "매끄럽게" 하기 위해 **post-processing** 단계는  k-point를 scattering 계산보다 더욱 크게 주는 것이 일반 적이다.<br/>
+Post-processing 단계에서 TBtrans 계산을 할때는 electrode나 scattering region에 대한 계산을 할 때 사용한 k-point와 다른 k-point 값을 사용해도 된다. 일반적으로 transmission 그래프을 "매끄럽게" 하기 위해 **post-processing** 단계는  k-point를 scattering 계산보다 더욱 크게 주는 것이 일반적이다.<br/>
 참고로 tbtrans 계산의 input인 `scat.TSHS` 파일은 k-point를 1x60x1일때 얻은 결과값이다.<br/>
 1.Electrode_k060에서 나온 elec.TSHS를 가져온다. (질문: 왜 k240으로 다시 뽑지 않고 기존거 그대로 사용하는가?)
 ```

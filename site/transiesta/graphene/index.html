@@ -3040,7 +3040,7 @@ kgrid에 1이 아닌 값을 준 경우 아래와 같이 함수 부분을 수정�
 <center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../transiesta/img/graphene-03.png" data-desc-position="bottom"><img src="../../transiesta/img/graphene-03.png" width="60%" height="60%"></a></center>
 
 <h2 id="exercise-1-k-point-effect">Exercise 1: K-point effect</h2>
-<p>Post-processing 단계에서 TBtrans 계산을 할때는 electrode나 scattering region에 대한 계산을 할 때 사용한 k-point와 다른 k-point 값을 사용해도 된다. 일반적으로 transmission 그래프을 "매끄럽게" 하기 위해 <strong>post-processing</strong> 단계는  k-point를 scattering 계산보다 더욱 크게 주는 것이 일반 적이다.<br>
+<p>Post-processing 단계에서 TBtrans 계산을 할때는 electrode나 scattering region에 대한 계산을 할 때 사용한 k-point와 다른 k-point 값을 사용해도 된다. 일반적으로 transmission 그래프을 "매끄럽게" 하기 위해 <strong>post-processing</strong> 단계는  k-point를 scattering 계산보다 더욱 크게 주는 것이 일반적이다.<br>
 참고로 tbtrans 계산의 input인 <code>scat.TSHS</code> 파일은 k-point를 1x60x1일때 얻은 결과값이다.<br>
 1.Electrode_k060에서 나온 elec.TSHS를 가져온다. (질문: 왜 k240으로 다시 뽑지 않고 기존거 그대로 사용하는가?)
 </p><div class="highlight"><pre><span></span><code>$ vi KPT.fdf
@@ -3125,7 +3125,7 @@ $ vi 4.Graphene_wider_k30/input/KPT.fdf
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 6, 2026 15:32:16 UTC">October 6, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 7, 2026 14:26:31 UTC">October 7, 2026</span>
   </span>
 
     
