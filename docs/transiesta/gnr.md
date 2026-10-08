@@ -4,7 +4,7 @@ Graphene nanoribbons
 1. Pristine graphene nanoribbons
 2. N-doped graphene nanoribbons
 
-> Input: [Link](https://1drv.ms/u/s!ArHICXVqPANVux-WuG-C7gSa2oeJ?e=0oRfSs)
+> Input: [GNRs.tar.gz](../../transiesta/img/build/GNRs.tar.gz)
 
 
 <br><br><br>
@@ -24,7 +24,7 @@ Graphene nanoribbons
 
 ```
 $ cd 1. Electrode_SZ
-$ cd INPUT 
+$ cd input 
 $ vi RUN.fdf
 ```
 
@@ -47,7 +47,7 @@ TS.HS.Save  	      T
 slm_siesta_run을 이용해 electrode 계산을 한다.
 ```
 $ cd ../
-$ qsub slm_siesta_run
+$ qsub slm_sbatch_transiesta
 ```
 
 
@@ -100,18 +100,18 @@ scattering region은 2-unit cell로 구성되어 있으나, Transiesta 계산에
 slm_siesta_run을 이용해 TranSIESTA 계산을 한다.
 ```
  $ cd ../
- $ qsub slm_siesta_run
+ $ qsub slm_sbatch_transiesta
 ```
  
 계산에 끝나면 OUT 폴더에 `.TSHS`와 `.TSDE`가 생성된 것을 확인할 수 있을 것이다.
 
 ### Step 3. Post-processing
 
-Transiesta  OUTPUT에서 `.TSHS`파일을 복사해 INPUT폴더에 넣어준 후 slm_transiesta_run_TBT을 이용해 TBTrans 계산을 해준다
+Transiesta  OUT에서 `.TSHS`파일을 복사해 INPUT폴더에 넣어준 후 slm_sbatch_tbtrans을 이용해 TBTrans 계산을 해준다
 
 ```
-$ cp OUT/Si1D_Perf.TSHS input/
-$ qsub slm_transiesta_run_TBT
+$ cp OUT/scat.TSHS input/
+$ qsub slm_sbatch_tbtrans
 ```
 
 ### Channel 영역의 길이: 2 vs 6 unit cell  
@@ -122,22 +122,19 @@ $ qsub slm_transiesta_run_TBT
 
 ```
 $ cd ../3.10unit-GNR_SZ
-$ cp ../1.Electrode_SZ/elec.TSHS input/
-$ qsub slm_siesta_run
+$ cp ../1.Electrode_SZ/OUT/elec.TSHS input/
+$ qsub slm_sbatch_transiesta
 $ cp OUT/scat.TSHS input/
-$ qsub slm_siesta_run_TBT
+$ qsub slm_sbatch_tbtrans
 ```
 
 이제 2-unit 6-unit channel GNRs의 transmission을 비교해보자.
 
 ```
-$ cd ../
-$ cp 2.6unit-GNR_SZ/tbtrans/scat.AVTRANs_Left-Right ./scat.TBT.AVTRANS_6unit
-$ cp 3.10unit-GNR_SZ/tbtrans/scat.AVTRANs_Left-Right ./scat.TBT.AVTRANS_10unit
-$ python show_trans.py scat.TBT.AVTRANS_6unit scat.TBT.AVTRANS_10unit
+$ python ../show_trans.py OUT_tbtrans/scat.TBT.TRANS_Left-Right ../2.6unit-GNR_SZ/OUT_tbtrans/scat.TBT.TRANS_Left-Right 
 ```
 
-<center><img src="../../transiesta/img/gnr-05.jpg" width="50%" height="50%"></center>
+<center><img src="../../transiesta/img/gnr-05.png" width="50%" height="50%"></center>
 
 
 그림에서 보면 channel의 unit 개수와 상관없이 trasmission은 동일한 것을 확인할 수 있다.
@@ -155,14 +152,15 @@ $ python show_trans.py scat.TBT.AVTRANS_6unit scat.TBT.AVTRANS_10unit
 
 먼저 2-unit cell의 채널의 길이를 계산을 진행한다.
 
-※ 예제 파일의 `STRUCT.fdf`에는 19번 atom이 `H`로 되어 있으므로 이를 `C`로 수정한다.
+※ 예제 파일의 `STRUCT.fdf`에는 19번 atom이 `H`로 되어 있으므로 이를 `C`로 수정한다. <br>
+※ 구조에 대해 어디 위치에 N이 도핑되는지도 확인해라.
 ```
-$ cd 4.6unit-GNR+N_SZ
-$ cp ../1.Electrode/elec.TSHS input/
-$ qsub slm_siesta_run
+$ cd ../4.6unit-GNR+N_SZ
+$ cp ../1.Electrode/OUT/elec.TSHS input/
+$ qsub slm_sbatch_transiesta
 ...
-$ cp OUT/scat_ input/
-$ qsub slm_siesta_run_tbt
+$ cp OUT/scat.TSHS input/
+$ qsub slm_sbatch_tbtrans
 ```
 
 - 6-unit channel
@@ -171,12 +169,12 @@ $ qsub slm_siesta_run_tbt
 
 6-unit cell의 채널의 길이를 계산을 진행한다.
 ```
-$ cd 5.10unit-GNR+N_SZ
-$ cp ../1.Electrode/elec.TSHS input/
-$ qsub slm_siesta_run
+$ cd ../5.10unit-GNR+N_SZ
+$ cp ../1.Electrode_SZ/OUT/elec.TSHS input/
+$ qsub slm_sbatch_transiesta
 ...
-$ cp OUT/scat. input/
-$ qsub slm_siesta_run_tbt
+$ cp OUT/scat.TSHS input/
+$ qsub slm_sbatch_tbtrans
 ```
 
 - 10-unit channel
@@ -185,23 +183,19 @@ $ qsub slm_siesta_run_tbt
 
 10-unit cell의 채널의 길이를 계산을 진행한다.
 ```
-$ cd 6.14unit-GNR+N_SZ
-$ cp ../1.Electrode/elec.TSHS input/
-$ qsub slm_siesta_run
+$ cd ../6.14unit-GNR+N_SZ
+$ cp ../1.Electrode_SZ/OUT/elec.TSHS input/
+$ qsub slm_sbatch_transiesta
 ...
 $ cp OUT/scat.TSHS input/
-$ qsub slm_siesta_run_tbt
+$ qsub slm_sbatch_tbtrans
 ```
 
 ### Channel 영역의 길이: 2 vs 6 vs 10 unit cell
 
 GNRs + N-dopant 구조에 대해 채널의 길이가 2, 6, 10 unit cells인 경우의 transmission을 비교해보자.
 ```
-$ cd ../
-$ cp 4.6unit-GNR+N_SZ/TBtrans/scat.TBT.AVTRANS_Left-Right ./scat.TBT.AVTRANS_Ndopant_6unit
-$ cp 5.10unit-GNR+N_SZ/TBtransscat.TBT.AVTRANS_Left-Right ./scat.TBT.AVTRANS_Ndopant_10unit
-$ cp 6.14unit-GNR+N_SZ/TBtrans/scat.TBT.AVTRANS_Left-Right ./scat.TBT.AVTRANS_Ndopant_14unit
-$ python show_trans.py scat.TBT.AVTRANS_Ndopant_6unit scat.TBT.AVTRANS_Ndopant_10unit scat.TBT.AVTRANS_Ndopant_14unit
+python ../show_trans.py OUT_tbtrans/scat.TBT.TRANS_Left-Right ../5.10unit-GNR+N_SZ/OUT_tbtrans/scat.TBT.TRANS_Left-Right ../4.6unit-GNR+N_SZ/OUT_tbtrans/scat.TBT.TRANS_Left-Right
 ```
 
-<center><img src="../../transiesta/img/gnr-10.jpg" width="50%" height="50%"></center>
+<center><img src="../../transiesta/img/gnr-10.png" width="50%" height="50%"></center>

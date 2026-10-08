@@ -2946,7 +2946,7 @@
 <li>N-doped graphene nanoribbons</li>
 </ol>
 <blockquote>
-<p>Input: <a href="https://1drv.ms/u/s!ArHICXVqPANVux-WuG-C7gSa2oeJ?e=0oRfSs">Link</a></p>
+<p>Input: <a href="../../transiesta/img/build/GNRs.tar.gz">GNRs.tar.gz</a></p>
 </blockquote>
 <p><br><br><br></p>
 <h2 id="pristine-graphene-nanoribbons">Pristine graphene nanoribbons</h2>
@@ -2958,7 +2958,7 @@
 
 <p>전극은 z축 방향으로 주기적 조건을 만족하는 GNRs의 2개의 unit cell로 구성되어 있다.  </p>
 <div class="highlight"><pre><span></span><code>$ cd 1. Electrode_SZ
-$ cd INPUT 
+$ cd input 
 $ vi RUN.fdf
 </code></pre></div>
 <p>RUN.fdf에서 다음과 같이 <code>DM.MixingWeight</code>, <code>DM.NumberPulay</code>를 수정하면 29번내로 SCF convergence한다. </p>
@@ -2977,7 +2977,7 @@ TS.HS.Save            T
 </code></pre></div>
 <p>slm_siesta_run을 이용해 electrode 계산을 한다.
 </p><div class="highlight"><pre><span></span><code>$ cd ../
-$ qsub slm_siesta_run
+$ qsub slm_sbatch_transiesta
 </code></pre></div><p></p>
 <h3 id="step-2-scatting-region-calculation">Step 2. Scatting region calculation</h3>
 <center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../transiesta/img/gnr-03.jpg" data-desc-position="bottom"><img src="../../transiesta/img/gnr-03.jpg" width="80%" height="80%"></a></center>
@@ -3019,31 +3019,28 @@ $ qsub slm_siesta_run
 </ul>
 <p>slm_siesta_run을 이용해 TranSIESTA 계산을 한다.
 </p><div class="highlight"><pre><span></span><code> $ cd ../
- $ qsub slm_siesta_run
+ $ qsub slm_sbatch_transiesta
 </code></pre></div><p></p>
 <p>계산에 끝나면 OUT 폴더에 <code>.TSHS</code>와 <code>.TSDE</code>가 생성된 것을 확인할 수 있을 것이다.</p>
 <h3 id="step-3-post-processing">Step 3. Post-processing</h3>
-<p>Transiesta  OUTPUT에서 <code>.TSHS</code>파일을 복사해 INPUT폴더에 넣어준 후 slm_transiesta_run_TBT을 이용해 TBTrans 계산을 해준다</p>
-<div class="highlight"><pre><span></span><code>$ cp OUT/Si1D_Perf.TSHS input/
-$ qsub slm_transiesta_run_TBT
+<p>Transiesta  OUT에서 <code>.TSHS</code>파일을 복사해 INPUT폴더에 넣어준 후 slm_sbatch_tbtrans을 이용해 TBTrans 계산을 해준다</p>
+<div class="highlight"><pre><span></span><code>$ cp OUT/scat.TSHS input/
+$ qsub slm_sbatch_tbtrans
 </code></pre></div>
 <h3 id="channel-2-vs-6-unit-cell">Channel 영역의 길이: 2 vs 6 unit cell</h3>
 <p>채널 영역의 길이가 6-unit cell인 경우에 대해서도 TranSIESTA와 TBTrans 계산을 진행한다</p>
 <center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../transiesta/img/gnr-04.jpg" data-desc-position="bottom"><img src="../../transiesta/img/gnr-04.jpg" width="80%" height="80%"></a></center>
 
 <div class="highlight"><pre><span></span><code>$ cd ../3.10unit-GNR_SZ
-$ cp ../1.Electrode_SZ/elec.TSHS input/
-$ qsub slm_siesta_run
+$ cp ../1.Electrode_SZ/OUT/elec.TSHS input/
+$ qsub slm_sbatch_transiesta
 $ cp OUT/scat.TSHS input/
-$ qsub slm_siesta_run_TBT
+$ qsub slm_sbatch_tbtrans
 </code></pre></div>
 <p>이제 2-unit 6-unit channel GNRs의 transmission을 비교해보자.</p>
-<div class="highlight"><pre><span></span><code>$ cd ../
-$ cp 2.6unit-GNR_SZ/tbtrans/scat.AVTRANs_Left-Right ./scat.TBT.AVTRANS_6unit
-$ cp 3.10unit-GNR_SZ/tbtrans/scat.AVTRANs_Left-Right ./scat.TBT.AVTRANS_10unit
-$ python show_trans.py scat.TBT.AVTRANS_6unit scat.TBT.AVTRANS_10unit
+<div class="highlight"><pre><span></span><code>$ python ../show_trans.py OUT_tbtrans/scat.TBT.TRANS_Left-Right ../2.6unit-GNR_SZ/OUT_tbtrans/scat.TBT.TRANS_Left-Right 
 </code></pre></div>
-<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../transiesta/img/gnr-05.jpg" data-desc-position="bottom"><img src="../../transiesta/img/gnr-05.jpg" width="50%" height="50%"></a></center>
+<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../transiesta/img/gnr-05.png" data-desc-position="bottom"><img src="../../transiesta/img/gnr-05.png" width="50%" height="50%"></a></center>
 
 <p>그림에서 보면 channel의 unit 개수와 상관없이 trasmission은 동일한 것을 확인할 수 있다.</p>
 <h2 id="n-doped-graphene-nanoribbons">N-doped graphene nanoribbons</h2>
@@ -3056,13 +3053,14 @@ $ python show_trans.py scat.TBT.AVTRANS_6unit scat.TBT.AVTRANS_10unit
 <center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../transiesta/img/gnr-07.jpg" data-desc-position="bottom"><img src="../../transiesta/img/gnr-07.jpg" width="60%" height="60%"></a></center>
 
 <p>먼저 2-unit cell의 채널의 길이를 계산을 진행한다.</p>
-<p>※ 예제 파일의 <code>STRUCT.fdf</code>에는 19번 atom이 <code>H</code>로 되어 있으므로 이를 <code>C</code>로 수정한다.
-</p><div class="highlight"><pre><span></span><code>$ cd 4.6unit-GNR+N_SZ
-$ cp ../1.Electrode/elec.TSHS input/
-$ qsub slm_siesta_run
+<p>※ 예제 파일의 <code>STRUCT.fdf</code>에는 19번 atom이 <code>H</code>로 되어 있으므로 이를 <code>C</code>로 수정한다. <br>
+※ 구조에 대해 어디 위치에 N이 도핑되는지도 확인해라.
+</p><div class="highlight"><pre><span></span><code>$ cd ../4.6unit-GNR+N_SZ
+$ cp ../1.Electrode/OUT/elec.TSHS input/
+$ qsub slm_sbatch_transiesta
 ...
-$ cp OUT/scat_ input/
-$ qsub slm_siesta_run_tbt
+$ cp OUT/scat.TSHS input/
+$ qsub slm_sbatch_tbtrans
 </code></pre></div><p></p>
 <ul>
 <li>6-unit channel</li>
@@ -3070,12 +3068,12 @@ $ qsub slm_siesta_run_tbt
 <center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../transiesta/img/gnr-08.jpg" data-desc-position="bottom"><img src="../../transiesta/img/gnr-08.jpg" width="70%" height="70%"></a></center>
 
 <p>6-unit cell의 채널의 길이를 계산을 진행한다.
-</p><div class="highlight"><pre><span></span><code>$ cd 5.10unit-GNR+N_SZ
-$ cp ../1.Electrode/elec.TSHS input/
-$ qsub slm_siesta_run
+</p><div class="highlight"><pre><span></span><code>$ cd ../5.10unit-GNR+N_SZ
+$ cp ../1.Electrode_SZ/OUT/elec.TSHS input/
+$ qsub slm_sbatch_transiesta
 ...
-$ cp OUT/scat. input/
-$ qsub slm_siesta_run_tbt
+$ cp OUT/scat.TSHS input/
+$ qsub slm_sbatch_tbtrans
 </code></pre></div><p></p>
 <ul>
 <li>10-unit channel</li>
@@ -3083,22 +3081,18 @@ $ qsub slm_siesta_run_tbt
 <center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../transiesta/img/gnr-09.jpg" data-desc-position="bottom"><img src="../../transiesta/img/gnr-09.jpg" width="80%" height="80%"></a></center>
 
 <p>10-unit cell의 채널의 길이를 계산을 진행한다.
-</p><div class="highlight"><pre><span></span><code>$ cd 6.14unit-GNR+N_SZ
-$ cp ../1.Electrode/elec.TSHS input/
-$ qsub slm_siesta_run
+</p><div class="highlight"><pre><span></span><code>$ cd ../6.14unit-GNR+N_SZ
+$ cp ../1.Electrode_SZ/OUT/elec.TSHS input/
+$ qsub slm_sbatch_transiesta
 ...
 $ cp OUT/scat.TSHS input/
-$ qsub slm_siesta_run_tbt
+$ qsub slm_sbatch_tbtrans
 </code></pre></div><p></p>
 <h3 id="channel-2-vs-6-vs-10-unit-cell">Channel 영역의 길이: 2 vs 6 vs 10 unit cell</h3>
 <p>GNRs + N-dopant 구조에 대해 채널의 길이가 2, 6, 10 unit cells인 경우의 transmission을 비교해보자.
-</p><div class="highlight"><pre><span></span><code>$ cd ../
-$ cp 4.6unit-GNR+N_SZ/TBtrans/scat.TBT.AVTRANS_Left-Right ./scat.TBT.AVTRANS_Ndopant_6unit
-$ cp 5.10unit-GNR+N_SZ/TBtransscat.TBT.AVTRANS_Left-Right ./scat.TBT.AVTRANS_Ndopant_10unit
-$ cp 6.14unit-GNR+N_SZ/TBtrans/scat.TBT.AVTRANS_Left-Right ./scat.TBT.AVTRANS_Ndopant_14unit
-$ python show_trans.py scat.TBT.AVTRANS_Ndopant_6unit scat.TBT.AVTRANS_Ndopant_10unit scat.TBT.AVTRANS_Ndopant_14unit
+</p><div class="highlight"><pre><span></span><code>python ../show_trans.py OUT_tbtrans/scat.TBT.TRANS_Left-Right ../5.10unit-GNR+N_SZ/OUT_tbtrans/scat.TBT.TRANS_Left-Right ../4.6unit-GNR+N_SZ/OUT_tbtrans/scat.TBT.TRANS_Left-Right
 </code></pre></div><p></p>
-<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../transiesta/img/gnr-10.jpg" data-desc-position="bottom"><img src="../../transiesta/img/gnr-10.jpg" width="50%" height="50%"></a></center>
+<center><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../transiesta/img/gnr-10.png" data-desc-position="bottom"><img src="../../transiesta/img/gnr-10.png" width="50%" height="50%"></a></center>
 
 
 
