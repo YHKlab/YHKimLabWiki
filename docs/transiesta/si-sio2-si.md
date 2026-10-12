@@ -38,7 +38,7 @@ LatticeConstant       1.000000000 Ang
 %endblock LatticeVectors
 ```
 ```
-$ qsub slm_siesta_run
+$ qsub slm_sbatch_transiesta
 ```
 Left electrode와 Right electrode에 대해서 각자 DFT 계산을 진행하여 `.TSHS` 파일을 얻는다.
 
@@ -66,14 +66,14 @@ NumberOfSpecies  2                              NumberOfSpecies  2
 %endblock LatticeVectors                        %endblock LatticeVectors
 ...                                             ...
 
-$ qsub slm _siesta_run
+$ qsub slm_sbatch_transiesta
 ```
 
 #### Step 3: Post-processing
 TBTrans를 이용하여 transmission을 구한다.
 ```
 $ cp OUT/siesta.TSHS input/.
-$ qsub slm _siesta_run_tbt
+$ qsub slm_sbatch_tbtrans
 ```
 
 <center><img src="../../transiesta/img/si-sio2-si-05.png" width="60%" height="60%"></center>
