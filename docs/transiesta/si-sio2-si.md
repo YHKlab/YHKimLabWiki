@@ -4,7 +4,7 @@ Si-SiO<sub>2</sub>-Si junction model
 1. 수렴성 테스트
 
 
-> Input: [Link](https://1drv.ms/u/s!ArHICXVqPANVuyG8V_dx7W3FLClr?e=lmyFcX)
+> Input: [Si-SiO2-Si](../../transiesta/img/build/Si-SiO2-Si.tar.gz)
 
 ## 수렴성 테스트
 

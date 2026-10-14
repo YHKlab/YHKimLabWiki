@@ -4,7 +4,6 @@ Basic TranSIESTA calculation
 1. Perfect Si chain
 2. Imperfect Si chain
 
-> Input: [Link](https://1drv.ms/u/s!ArHICXVqPANVuyBy-vrmU4aMrTXO?e=03aGfU)
 
 <center><img src="../../transiesta/img/si-chain-1d-01.png" width="80%" height="50%"></center>
 
