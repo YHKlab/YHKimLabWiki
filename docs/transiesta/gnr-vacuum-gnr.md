@@ -5,7 +5,7 @@ GNRs-vacuum-GNRs junction model
 2. 수렴성 테스트
 3. 비평형 상태 계산
 
-> Input: [Link](https://1drv.ms/u/s!ArHICXVqPANVuyL_-aoSshJh_vwO?e=guzzZ7)
+> Input: [Link](../../transiesta/img/build/GNRs-vacuum-GNRs.tar.gz)
 
 그동안은 matrix Green's function을 기반으로 평형상태의 양자수송 특성을 계산하는 법에 대해서 다루었었다. 그러나 전압이 인가된 비평형 상황에서의 계산에서는 non-equilibrium Green's function (NEGF)의 도입이 필요하다. 이번 장에서는 graphene nanoribbons (GNRs)-vacuum-GNRs로 이루어진 비균질 모델에 대해서 junction을 정의하고 보다 정확한 계산을 위해서 수렴성 테스트를 진행하는 법을 소개하고 마지막으로 비평형 상태의 양자수송 특성을 계산하는 방법에 대해서 다룬다.
 
@@ -26,7 +26,7 @@ GNRs-vacuum-GNRs junction model
 DFT-NEGF 방법에서 필요한 전극의 self-energy를 구하기 위해서는 위와 같이 수송 방향으로 주기성을 가지는 전극의 벌크 구조에 대한 계산이 필요하다. 위 예시에서는 1, 2와 3 개의 단위격자로 구성된 전극 구조가 나열되어있다. 여기서 중요한 것은 우리가 설정한 전극은 완벽한 principal cell의 조건을 만족해야한다는 점이다. 이를 확인하기 위해서 각 구조에 대해서 electrode 계산을 진행해본다.
 
 ```bash
-cd 1.modeling/1.principal_cell_test/1-unit
+cd 0.modeling/1.principal_cell_test/1-unit
 sbatch slm_siesta_run
 cd ../2-unit
 sbatch slm_siesta_run
@@ -164,7 +164,7 @@ python show_trans.py  5-unit/OUT_tbt/scattering.TBT.AVTRANS_Left-Right 6-unit/OU
 우선 평형상태의 계산을 통해서 위 과정을 따라해보자. 참고로 GNRs-vacuum-GNRs 모델의 경우에는 1차원 모델이기 때문에 electrode 영역 계산 시에 사용되는 전자의 수송 방향(z축)으로 주어지는 k-point만 고려하면 된다. 따라서 z축 방향으로 여러 k-point을 바꾸어보며 electrode 계산을 진행해보자.
 
 ```bash
-cd ../../2.convergence_test/1.electrode/3-unit_k5
+cd ../../1.convergence_test/1.electrode/3-unit_k5
 sbatch slm_siesta_run
 
 cd ../3-unit_k10
